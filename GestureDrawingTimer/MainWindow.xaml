@@ -5,8 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestureDrawingTimer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Gesture Drawing Timer" Height="450" Width="800">
+    
+    <!-- outer Grid will hold each main "page" of the app -->
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         
+        <!-- Setup page -->
+        <Grid
+            x:Name="setupGrid"
+            Grid.Column="0"
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="*" /> <!-- main content -->
+                <ColumnDefinition Width="8" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8" />
+                <RowDefinition Height="*" /> <!-- main content -->
+                <RowDefinition Height="8" />
+            </Grid.RowDefinitions>
+            
+            <!-- main content container -->
+            <StackPanel
+                Grid.Column="1"
+                Grid.Row="1"
+                Orientation="Vertical">
+                <TextBlock
+                    Text="Gesture Drawing Timer" />
+                <Button
+                    x:Name="selectFolderButton"
+                    Content="Select a folder" />
+                <TextBlock
+                    x:Name="folderTextBlock"
+                    Text="folderTextBlock" />
+                <TextBlock
+                    x:Name="imagesInFolderTextBlock"
+                    Text="imagesInFolderTextBlock" />
+                <TextBlock
+                    x:Name="intervalTextBlock"
+                    Text="intervalTextBlock" />
+                <!-- interval buttons container -->
+                <StackPanel
+                    Orientation="Horizontal">
+                    <Button
+                        x:Name="intervalButton_1m"
+                        Content="1m" />
+                    <Button
+                        x:Name="intervalButton_2m"
+                        Content="2m" />
+                    <Button
+                        x:Name="intervalButton_3m"
+                        Content="3m" />
+                    <Button
+                        x:Name="intervalButton_5m"
+                        Content="5m" />
+                    <Button
+                        x:Name="intervalButton_7m"
+                        Content="7m" />
+                    <Button
+                        x:Name="intervalButton_10m"
+                        Content="10m" />
+                </StackPanel>
+                <Button
+                    x:Name="startButton"
+                    Content="startButton" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Timed session page -->
+        <Grid
+            x:Name="sessionGrid"
+            Grid.Column="0"
+            Grid.Row="0">
+
+        </Grid>
     </Grid>
 </Window>
