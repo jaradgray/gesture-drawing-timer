@@ -41,7 +41,8 @@
                     Text="Gesture Drawing Timer" />
                 <Button
                     x:Name="selectFolderButton"
-                    Content="Select a folder" />
+                    Content="Select a folder"
+                    Click="SelectFolderButton_Click" />
                 <TextBlock
                     x:Name="folderTextBlock"
                     Text="folderTextBlock" />
