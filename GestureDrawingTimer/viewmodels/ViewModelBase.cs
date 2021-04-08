@@ -8,7 +8,7 @@ namespace GestureDrawingTimer.viewmodels
         // Implement notifying PropertyChanged functionality
         public event PropertyChangedEventHandler PropertyChanged; // required by INotifyPropertyChanged interface
         // The method we'll call when we want to raise the PropertyChanged event
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
