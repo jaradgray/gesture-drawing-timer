@@ -20,12 +20,36 @@ namespace GestureDrawingTimer.viewmodels
                 {
                     _selectedFolderPath = value;
                     OnPropertyChanged();
-
-                    // TODO update image-related members
-                    //  - list of image paths
-                    //  - number of images (elements in image paths list)
-                    //  - number of subfolders
+                    // Update image-related members
                     UpdateImagePaths();
+                }
+            }
+        }
+
+        private int _numImages;
+        public int NumImages
+        {
+            get { return _numImages; }
+            private set
+            {
+                if (_numImages != value)
+                {
+                    _numImages = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private int _numSubfolders;
+        public int NumSubfolders
+        {
+            get { return _numSubfolders; }
+            private set
+            {
+                if (_numSubfolders != value)
+                {
+                    _numSubfolders = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -65,19 +89,20 @@ namespace GestureDrawingTimer.viewmodels
 
         // Private methods
 
+        /// <summary>
+        /// Sets mImagePaths to contain paths of all image files in the selected folder and all
+        /// of its subfolders, and updates NumImages and NumSubfolders properties.
+        /// </summary>
         private void UpdateImagePaths()
         {
             // Get paths of all supported image files in the currently selected folder and all of its subfolders
             string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
             mImagePaths = GetFilePathsInDirectory(SelectedFolderPath, true, validExtensions);
 
-            // TODO update members
-            string msg = "Images found:\n";
-            foreach (string str in mImagePaths)
-            {
-                msg += "\n" + str;
-            }
-            System.Windows.MessageBox.Show(msg);
+            // Update properties
+            NumImages = mImagePaths.Count;
+            string[] allSubfolders = System.IO.Directory.GetDirectories(SelectedFolderPath, "*", System.IO.SearchOption.AllDirectories);
+            NumSubfolders = allSubfolders.Length;
         }
 
         /// <summary>
