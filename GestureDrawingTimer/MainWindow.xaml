@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:GestureDrawingTimer"
         mc:Ignorable="d"
         Title="Gesture Drawing Timer" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="res/ButtonStyleNormal.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     
     <!-- outer Grid will hold each main "page" of the app -->
     <Grid>
@@ -57,22 +64,28 @@
                     Orientation="Horizontal">
                     <Button
                         x:Name="intervalButton_1m"
-                        Content="1m" />
+                        Content="1m"
+                        Style="{StaticResource Button.Normal}"/>
                     <Button
                         x:Name="intervalButton_2m"
-                        Content="2m" />
+                        Content="2m"
+                        Style="{StaticResource Button.Normal}" />
                     <Button
                         x:Name="intervalButton_3m"
-                        Content="3m" />
+                        Content="3m"
+                        Style="{StaticResource Button.Normal}" />
                     <Button
                         x:Name="intervalButton_5m"
-                        Content="5m" />
+                        Content="5m"
+                        Style="{StaticResource Button.Normal}" />
                     <Button
                         x:Name="intervalButton_7m"
-                        Content="7m" />
+                        Content="7m"
+                        Style="{StaticResource Button.Normal}" />
                     <Button
                         x:Name="intervalButton_10m"
-                        Content="10m" />
+                        Content="10m"
+                        Style="{StaticResource Button.Normal}" />
                 </StackPanel>
                 <Button
                     x:Name="startButton"
