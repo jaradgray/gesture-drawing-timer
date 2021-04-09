@@ -41,11 +41,18 @@ namespace GestureDrawingTimer
                     case "SelectedFolderPath":
                         folderTextBlock.Text = $"Folder: {mViewModel.SelectedFolderPath}";
                         break;
+                    case "NumImages":
+                        imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
+                        break;
+                    case "NumSubfolders":
+                        imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
+                        break;
                 }
             };
 
             // Initialize views to ViewModel's state
             folderTextBlock.Text = $"Folder: {mViewModel.SelectedFolderPath}";
+            imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
         }
 
 
