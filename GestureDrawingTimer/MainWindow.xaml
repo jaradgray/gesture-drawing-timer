@@ -50,7 +50,8 @@
                 <Button
                     x:Name="selectFolderButton"
                     Content="Select a folder"
-                    Click="SelectFolderButton_Click" />
+                    Click="SelectFolderButton_Click"
+                    Style="{StaticResource Button.Normal}" />
                 <TextBlock
                     x:Name="folderTextBlock"
                     Text="folderTextBlock" />
@@ -96,7 +97,8 @@
                 </StackPanel>
                 <Button
                     x:Name="startButton"
-                    Content="startButton" />
+                    Content="startButton"
+                    Style="{StaticResource Button.HighEmphasis}"/>
             </StackPanel>
         </Grid>
 
