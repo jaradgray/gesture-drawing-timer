@@ -108,13 +108,16 @@ namespace GestureDrawingTimer
             if (path.Equals(""))
             {
                 folderTextBlock.Text = "No folder selected";
-                imagesInFolderTextBlock.Visibility = Visibility.Collapsed;
+                imagesInFolderTextBlock.Visibility = Visibility.Collapsed; // hide imagesInFolderTextBlock
+                startButton.IsEnabled = false; // disable startButton
+                selectFolderButton.Style = (Style)FindResource("Button.HighEmphasis"); // indicate selectFolderButton
                 return;
             }
 
             folderTextBlock.Text = $"Folder: {mViewModel.SelectedFolderPath}";
-            // we'll restore imagesInFolderTextBlock's visibility here because this is the method that can change it to Collapsed
-            imagesInFolderTextBlock.Visibility = Visibility.Visible;
+            imagesInFolderTextBlock.Visibility = Visibility.Visible; // show imagesInFolderTextBlock
+            startButton.IsEnabled = true; // enable startButton
+            selectFolderButton.Style = (Style)FindResource("Button.Normal"); // un-emphasize selectFolderButton
         }
 
         /// <summary>
