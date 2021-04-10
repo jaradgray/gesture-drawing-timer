@@ -54,6 +54,24 @@ namespace GestureDrawingTimer.viewmodels
             }
         }
 
+        private int _interval;
+        /// <summary>
+        /// The number of seconds an image will be displayed before switching to the next image
+        /// </summary>
+        public int Interval
+        {
+            get { return _interval; }
+            set
+            {
+                if (_interval != value)
+                {
+                    _interval = value;
+                    OnPropertyChanged();
+                    // TODO persist interval value
+                }
+            }
+        }
+
 
         // Private variables
         private List<string> mImagePaths = new List<string>();
@@ -64,6 +82,8 @@ namespace GestureDrawingTimer.viewmodels
         {
             // Initialize DirPath from persisted data
             SelectedFolderPath = Properties.Settings.Default.SelectedFolderPath;
+
+            // TODO initialize Interval from persisted data
         }
 
 
