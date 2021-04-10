@@ -67,7 +67,9 @@ namespace GestureDrawingTimer.viewmodels
                 {
                     _interval = value;
                     OnPropertyChanged();
-                    // TODO persist interval value
+                    // Persist interval value
+                    Properties.Settings.Default.ImageInterval = value;
+                    Properties.Settings.Default.Save(); // persist value across application sessions
                 }
             }
         }
@@ -80,10 +82,9 @@ namespace GestureDrawingTimer.viewmodels
         // Constructor
         public MainWindowViewModel()
         {
-            // Initialize DirPath from persisted data
+            // Initialize properties from persisted data
             SelectedFolderPath = Properties.Settings.Default.SelectedFolderPath;
-
-            // TODO initialize Interval from persisted data
+            Interval = Properties.Settings.Default.ImageInterval;
         }
 
 

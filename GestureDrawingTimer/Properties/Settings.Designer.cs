@@ -34,5 +34,17 @@ namespace GestureDrawingTimer.Properties {
                 this["SelectedFolderPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public int ImageInterval {
+            get {
+                return ((int)(this["ImageInterval"]));
+            }
+            set {
+                this["ImageInterval"] = value;
+            }
+        }
     }
 }
