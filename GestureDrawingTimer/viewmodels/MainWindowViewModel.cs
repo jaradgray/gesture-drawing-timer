@@ -120,6 +120,14 @@ namespace GestureDrawingTimer.viewmodels
             string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
             mImagePaths = GetFilePathsInDirectory(SelectedFolderPath, true, validExtensions);
 
+            // Handle error
+            if (mImagePaths == null)
+            {
+                // GetFilesPathsInDirectory() returned null, so the folder at SelectedFolderPath doesn't exist
+                SelectedFolderPath = "";
+                return;
+            }
+
             // Update properties
             NumImages = mImagePaths.Count;
             string[] allSubfolders = System.IO.Directory.GetDirectories(SelectedFolderPath, "*", System.IO.SearchOption.AllDirectories);
@@ -138,6 +146,12 @@ namespace GestureDrawingTimer.viewmodels
         private List<string> GetFilePathsInDirectory(string dirPath, bool doRecursive, string[] validExtensions = null)
         {
             List<string> result = new List<string>();
+
+            // Handle given directory doesn't exist
+            if (!System.IO.Directory.Exists(dirPath))
+            {
+                return null;
+            }
 
             string[] allFiles = System.IO.Directory.GetFiles(dirPath, "*", doRecursive ? System.IO.SearchOption.AllDirectories : System.IO.SearchOption.TopDirectoryOnly);
             // add to result files whose extension is in the validExtensions array

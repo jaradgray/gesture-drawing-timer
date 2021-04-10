@@ -39,7 +39,7 @@ namespace GestureDrawingTimer
                 switch (args.PropertyName)
                 {
                     case "SelectedFolderPath":
-                        folderTextBlock.Text = $"Folder: {mViewModel.SelectedFolderPath}";
+                        SyncSelectedFolderPath();
                         break;
                     case "NumImages":
                         imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
@@ -54,7 +54,7 @@ namespace GestureDrawingTimer
             };
 
             // Initialize views to ViewModel's state
-            folderTextBlock.Text = $"Folder: {mViewModel.SelectedFolderPath}";
+            SyncSelectedFolderPath();
             imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
             SyncIntervalButtons();
         }
@@ -99,6 +99,23 @@ namespace GestureDrawingTimer
 
 
         // Private methods
+
+        private void SyncSelectedFolderPath()
+        {
+            string path = mViewModel.SelectedFolderPath;
+
+            // Handle no folder selected
+            if (path.Equals(""))
+            {
+                folderTextBlock.Text = "No folder selected";
+                imagesInFolderTextBlock.Visibility = Visibility.Collapsed;
+                return;
+            }
+
+            folderTextBlock.Text = $"Folder: {mViewModel.SelectedFolderPath}";
+            // we'll restore imagesInFolderTextBlock's visibility here because this is the method that can change it to Collapsed
+            imagesInFolderTextBlock.Visibility = Visibility.Visible;
+        }
 
         /// <summary>
         /// Sets styles of interval Buttons based on mViewModel's Interval property
