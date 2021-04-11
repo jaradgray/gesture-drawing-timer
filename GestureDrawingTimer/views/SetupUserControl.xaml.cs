@@ -22,7 +22,7 @@ namespace GestureDrawingTimer.views
     public partial class SetupUserControl : UserControl
     {
         // Instance variables
-        private MainWindowViewModel mViewModel;
+        private SetupUserControlViewModel mViewModel;
 
 
         // Constructor
@@ -31,7 +31,7 @@ namespace GestureDrawingTimer.views
             InitializeComponent();
 
             // Get a ViewModel
-            mViewModel = new MainWindowViewModel();
+            mViewModel = new SetupUserControlViewModel();
 
             // Handle changes to ViewModel's state
             mViewModel.PropertyChanged += (sender, args) =>
