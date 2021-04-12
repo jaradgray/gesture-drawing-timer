@@ -12,22 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GestureDrawingTimer.viewmodels;
-using GestureDrawingTimer.views;
 
-namespace GestureDrawingTimer
+namespace GestureDrawingTimer.views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SlideshowUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SlideshowUserControl : UserControl
     {
-        public MainWindow()
+        public SlideshowUserControl()
         {
             InitializeComponent();
-
-            // Show the UserControl for the setup screen
-            contentControl.Content = new SetupUserControl();
         }
     }
 }

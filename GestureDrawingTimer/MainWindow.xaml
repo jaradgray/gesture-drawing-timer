@@ -6,16 +6,6 @@
         xmlns:local="clr-namespace:GestureDrawingTimer"
         mc:Ignorable="d"
         Title="Gesture Drawing Timer" Height="450" Width="800">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="res/ButtonStyleNormal.xaml" />
-                <ResourceDictionary Source="res/ButtonStyleHighEmphasis.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    
-    <!-- outer Grid will hold each main "page" of the app -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -23,91 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <!-- Setup page -->
-        <Grid
-            x:Name="setupGrid"
-            Grid.Column="0"
-            Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8" />
-                <ColumnDefinition Width="*" /> <!-- main content -->
-                <ColumnDefinition Width="8" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="8" />
-                <RowDefinition Height="*" /> <!-- main content -->
-                <RowDefinition Height="8" />
-            </Grid.RowDefinitions>
-            
-            <!-- main content container -->
-            <StackPanel
-                Grid.Column="1"
-                Grid.Row="1"
-                Orientation="Vertical">
-                <TextBlock
-                    Text="Gesture Drawing Timer" />
-                <Button
-                    x:Name="selectFolderButton"
-                    Content="Select a folder"
-                    Click="SelectFolderButton_Click"
-                    Style="{StaticResource Button.Normal}" />
-                <TextBlock
-                    x:Name="folderTextBlock"
-                    Text="folderTextBlock" />
-                <TextBlock
-                    x:Name="imagesInFolderTextBlock"
-                    Text="imagesInFolderTextBlock" />
-                <TextBlock
-                    x:Name="intervalTextBlock"
-                    Text="intervalTextBlock" />
-                <!-- interval buttons container -->
-                <StackPanel
-                    Orientation="Horizontal">
-                    <Button
-                        x:Name="intervalButton_1m"
-                        Content="1m"
-                        Style="{StaticResource Button.Normal}"
-                        Click="IntervalButton_Click"/>
-                    <Button
-                        x:Name="intervalButton_2m"
-                        Content="2m"
-                        Style="{StaticResource Button.Normal}"
-                        Click="IntervalButton_Click" />
-                    <Button
-                        x:Name="intervalButton_3m"
-                        Content="3m"
-                        Style="{StaticResource Button.Normal}"
-                        Click="IntervalButton_Click" />
-                    <Button
-                        x:Name="intervalButton_5m"
-                        Content="5m"
-                        Style="{StaticResource Button.Normal}"
-                        Click="IntervalButton_Click" />
-                    <Button
-                        x:Name="intervalButton_7m"
-                        Content="7m"
-                        Style="{StaticResource Button.Normal}"
-                        Click="IntervalButton_Click" />
-                    <Button
-                        x:Name="intervalButton_10m"
-                        Content="10m"
-                        Style="{StaticResource Button.Normal}"
-                        Click="IntervalButton_Click" />
-                </StackPanel>
-                <Button
-                    x:Name="startButton"
-                    Content="startButton"
-                    Style="{StaticResource Button.HighEmphasis}"/>
-            </StackPanel>
-        </Grid>
 
-        <!-- Timed session page -->
-        <Grid
-            x:Name="sessionGrid"
-            Grid.Column="0"
-            Grid.Row="0">
-
-        </Grid>
+        <ContentControl x:Name="contentControl"/>
     </Grid>
 </Window>

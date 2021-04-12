@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    class MainWindowViewModel : ViewModelBase
+    class SetupUserControlViewModel : ViewModelBase
     {
         // Properties and their backing fields
 
@@ -80,7 +80,7 @@ namespace GestureDrawingTimer.viewmodels
 
 
         // Constructor
-        public MainWindowViewModel()
+        public SetupUserControlViewModel()
         {
             // Initialize properties from persisted data
             SelectedFolderPath = Properties.Settings.Default.SelectedFolderPath;
