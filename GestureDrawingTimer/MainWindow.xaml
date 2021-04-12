@@ -6,9 +6,6 @@
         xmlns:local="clr-namespace:GestureDrawingTimer"
         mc:Ignorable="d"
         Title="Gesture Drawing Timer" Height="450" Width="800">
-    
-    
-    <!-- outer Grid will hold each main "page" of the app -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -16,16 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <!-- Setup page -->
-        
 
-        <!-- Timed session page -->
-        <Grid
-            x:Name="sessionGrid"
-            Grid.Column="0"
-            Grid.Row="0">
-
-        </Grid>
+        <ContentControl x:Name="contentControl"/>
     </Grid>
 </Window>

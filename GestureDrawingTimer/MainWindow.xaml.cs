@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestureDrawingTimer.viewmodels;
+using GestureDrawingTimer.views;
 
 namespace GestureDrawingTimer
 {
@@ -24,6 +25,9 @@ namespace GestureDrawingTimer
         public MainWindow()
         {
             InitializeComponent();
+
+            // Show the UserControl for the setup screen
+            contentControl.Content = new SetupUserControl();
         }
     }
 }
