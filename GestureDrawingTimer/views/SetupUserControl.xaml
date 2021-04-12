@@ -90,7 +90,7 @@
             <Button
                     x:Name="startButton"
                     Content="startButton"
-                    Style="{StaticResource Button.HighEmphasis}"/>
+                    Style="{StaticResource Button.HighEmphasis}" Click="StartButton_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

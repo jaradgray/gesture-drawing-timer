@@ -14,20 +14,30 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestureDrawingTimer.viewmodels;
 using GestureDrawingTimer.views;
+using static GestureDrawingTimer.views.SetupUserControl;
 
 namespace GestureDrawingTimer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, ISetupUserControlListener
     {
         public MainWindow()
         {
             InitializeComponent();
 
             // Show the UserControl for the setup screen
-            contentControl.Content = new SetupUserControl();
+            SetupUserControl setupUC = new SetupUserControl();
+            setupUC.SetListener(this);
+            contentControl.Content = setupUC;
+        }
+
+
+        // ISetupUserControlListener implementation
+        public void StartSlideshow()
+        {
+            contentControl.Content = new SlideshowUserControl();
         }
     }
 }
