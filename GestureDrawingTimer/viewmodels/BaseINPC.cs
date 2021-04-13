@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    class ViewModelBase : INotifyPropertyChanged
+    class BaseINPC : INotifyPropertyChanged
     {
         // Implement notifying PropertyChanged functionality
         public event PropertyChangedEventHandler PropertyChanged; // required by INotifyPropertyChanged interface

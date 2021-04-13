@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    class SetupUserControlViewModel : ViewModelBase
+    class SetupUserControlViewModel : BaseINPC
     {
         // Properties and their backing fields
 

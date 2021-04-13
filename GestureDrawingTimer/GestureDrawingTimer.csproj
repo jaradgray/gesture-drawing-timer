@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="viewmodels\SetupUserControlViewModel.cs" />
-    <Compile Include="viewmodels\ViewModelBase.cs" />
+    <Compile Include="viewmodels\BaseINPC.cs" />
     <Compile Include="views\SetupUserControl.xaml.cs">
       <DependentUpon>SetupUserControl.xaml</DependentUpon>
     </Compile>
