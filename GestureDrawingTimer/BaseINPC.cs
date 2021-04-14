@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace GestureDrawingTimer.viewmodels
+namespace GestureDrawingTimer
 {
     class BaseINPC : INotifyPropertyChanged
     {
