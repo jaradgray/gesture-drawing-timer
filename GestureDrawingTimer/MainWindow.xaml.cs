@@ -23,14 +23,29 @@ namespace GestureDrawingTimer
     /// </summary>
     public partial class MainWindow : Window, ISetupUserControlListener
     {
+        // Instance variables
+        private MainWindowViewModel mViewModel;
+
+        // Constructor
         public MainWindow()
         {
             InitializeComponent();
 
-            // Show the UserControl for the setup screen
-            SetupUserControl setupUC = new SetupUserControl();
-            setupUC.SetListener(this);
-            contentControl.Content = setupUC;
+            mViewModel = new MainWindowViewModel();
+
+            // Handle changes to viewModel's properties
+            mViewModel.PropertyChanged += (sender, args) =>
+            {
+                switch (args.PropertyName)
+                {
+                    case "ActiveContentViewModel":
+                        ActiveContentViewModel_Change(mViewModel.ActiveContentViewModel);
+                        break;
+                }
+            };
+
+            // Initialize to viewModel's properties
+            ActiveContentViewModel_Change(mViewModel.ActiveContentViewModel);
         }
 
 
@@ -38,6 +53,19 @@ namespace GestureDrawingTimer
         public void StartSlideshow()
         {
             contentControl.Content = new SlideshowUserControl();
+        }
+
+
+        // Private methods
+
+        private void ActiveContentViewModel_Change(object viewModel)
+        {
+            // Set contentControl's Content based on runtime type of parameter
+            Type t = viewModel.GetType();
+            if (t == typeof(SetupUserControlViewModel))
+            {
+                contentControl.Content = new SetupUserControl((SetupUserControlViewModel)viewModel);
+            }
         }
     }
 }
