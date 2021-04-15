@@ -30,7 +30,7 @@ namespace GestureDrawingTimer.viewmodels
             Session = new Session();
             Session.Interval = Properties.Settings.Default.ImageInterval;
 
-            ActiveContentViewModel = new SetupUserControlViewModel(Session);
+            ActiveContentViewModel = new SetupViewModel(Session);
         }
     }
 }

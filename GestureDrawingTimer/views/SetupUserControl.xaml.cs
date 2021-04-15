@@ -31,11 +31,11 @@ namespace GestureDrawingTimer.views
 
 
         // Instance variables
-        private SetupUserControlViewModel mViewModel;
+        private SetupViewModel mViewModel;
 
 
         // Constructor
-        public SetupUserControl(SetupUserControlViewModel viewModel)
+        public SetupUserControl(SetupViewModel viewModel)
         {
             InitializeComponent();
 

@@ -7,7 +7,7 @@ using GestureDrawingTimer.models;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    public class SetupUserControlViewModel : BaseINPC
+    public class SetupViewModel : BaseINPC
     {
         // Properties and their backing fields
         private string _selectedFolderPath;
@@ -66,7 +66,7 @@ namespace GestureDrawingTimer.viewmodels
         private Session mSession;
 
         // Constructor
-        public SetupUserControlViewModel(Session session)
+        public SetupViewModel(Session session)
         {
             mSession = session;
             // Initialize properties from persisted data

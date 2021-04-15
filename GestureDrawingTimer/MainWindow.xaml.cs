@@ -62,9 +62,9 @@ namespace GestureDrawingTimer
         {
             // Set contentControl's Content based on runtime type of parameter
             Type t = viewModel.GetType();
-            if (t == typeof(SetupUserControlViewModel))
+            if (t == typeof(SetupViewModel))
             {
-                contentControl.Content = new SetupUserControl((SetupUserControlViewModel)viewModel);
+                contentControl.Content = new SetupUserControl((SetupViewModel)viewModel);
             }
         }
     }
