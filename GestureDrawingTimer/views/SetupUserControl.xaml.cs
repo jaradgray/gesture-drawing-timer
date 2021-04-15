@@ -35,13 +35,11 @@ namespace GestureDrawingTimer.views
 
 
         // Constructor
-        public SetupUserControl()
+        public SetupUserControl(SetupUserControlViewModel viewModel)
         {
             InitializeComponent();
 
-            // Get a ViewModel
-            mViewModel = new SetupUserControlViewModel();
-
+            mViewModel = viewModel;
             // Handle changes to ViewModel's state
             mViewModel.PropertyChanged += (sender, args) =>
             {
