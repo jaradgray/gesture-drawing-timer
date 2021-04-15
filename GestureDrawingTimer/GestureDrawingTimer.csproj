@@ -63,8 +63,8 @@
     <Compile Include="views\SetupUserControl.xaml.cs">
       <DependentUpon>SetupUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\SlideshowUserControl.xaml.cs">
-      <DependentUpon>SlideshowUserControl.xaml</DependentUpon>
+    <Compile Include="views\SessionUserControl.xaml.cs">
+      <DependentUpon>SessionUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,7 +90,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\SlideshowUserControl.xaml">
+    <Page Include="views\SessionUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,9 +18,9 @@ namespace GestureDrawingTimer.views
     /// <summary>
     /// Interaction logic for SlideshowUserControl.xaml
     /// </summary>
-    public partial class SlideshowUserControl : UserControl
+    public partial class SessionUserControl : UserControl
     {
-        public SlideshowUserControl()
+        public SessionUserControl()
         {
             InitializeComponent();
         }
