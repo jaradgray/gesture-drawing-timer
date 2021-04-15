@@ -32,8 +32,26 @@ namespace GestureDrawingTimer.views
             mViewModel = viewModel;
 
             // Handle changes to ViewModel's properties
+            mViewModel.PropertyChanged += (sender, args) =>
+            {
+                switch (args.PropertyName)
+                {
+                    case "CurrentImagePath":
+                        CurrentImagePath_Change(mViewModel.CurrentImagePath);
+                        break;
+                }
+            };
 
             // Initialize view to ViewModel's properties
+            CurrentImagePath_Change(mViewModel.CurrentImagePath);
+        }
+
+
+        // Private methods
+        private void CurrentImagePath_Change(string path)
+        {
+            BitmapImage img = new BitmapImage(new Uri(path));
+            imageContainer.Source = img;
         }
     }
 }
