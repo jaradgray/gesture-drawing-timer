@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GestureDrawingTimer.viewmodels;
 
 namespace GestureDrawingTimer.views
 {
@@ -20,9 +21,19 @@ namespace GestureDrawingTimer.views
     /// </summary>
     public partial class SessionUserControl : UserControl
     {
-        public SessionUserControl()
+        // Instance variables
+        private SessionViewModel mViewModel;
+
+        // Constructor
+        public SessionUserControl(SessionViewModel viewModel)
         {
             InitializeComponent();
+
+            mViewModel = viewModel;
+
+            // Handle changes to ViewModel's properties
+
+            // Initialize view to ViewModel's properties
         }
     }
 }

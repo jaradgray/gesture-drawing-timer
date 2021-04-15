@@ -58,6 +58,10 @@ namespace GestureDrawingTimer
             {
                 contentControl.Content = new SetupUserControl((SetupViewModel)viewModel);
             }
+            else if (t == typeof(SessionViewModel))
+            {
+                contentControl.Content = new SessionUserControl((SessionViewModel)viewModel);
+            }
         }
     }
 }

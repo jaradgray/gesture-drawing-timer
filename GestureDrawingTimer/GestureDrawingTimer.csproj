@@ -59,6 +59,7 @@
     <Compile Include="models\Model.cs" />
     <Compile Include="models\Session.cs" />
     <Compile Include="viewmodels\MainWindowViewModel.cs" />
+    <Compile Include="viewmodels\SessionViewModel.cs" />
     <Compile Include="viewmodels\SetupViewModel.cs" />
     <Compile Include="views\SetupUserControl.xaml.cs">
       <DependentUpon>SetupUserControl.xaml</DependentUpon>

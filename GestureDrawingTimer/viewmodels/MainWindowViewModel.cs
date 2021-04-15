@@ -42,7 +42,7 @@ namespace GestureDrawingTimer.viewmodels
         // ISetupViewListener implementation
         public void StartSlideshow()
         {
-            System.Windows.MessageBox.Show("MainWindow detected start button click!");
+            ActiveContentViewModel = new SessionViewModel(Session);
         }
     }
 }
