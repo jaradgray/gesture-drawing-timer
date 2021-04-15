@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GestureDrawingTimer.models;
+using static GestureDrawingTimer.viewmodels.SetupViewModel;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    class MainWindowViewModel : BaseINPC
+    class MainWindowViewModel : BaseINPC, ISetupViewListener
     {
         // Properties
         public Session Session;
@@ -23,6 +24,9 @@ namespace GestureDrawingTimer.viewmodels
             }
         }
 
+        // Instance variables
+        private SetupViewModel mSetupVM;
+
         // Constructor
         public MainWindowViewModel()
         {
@@ -30,7 +34,15 @@ namespace GestureDrawingTimer.viewmodels
             Session = new Session();
             Session.Interval = Properties.Settings.Default.ImageInterval;
 
-            ActiveContentViewModel = new SetupViewModel(Session);
+            mSetupVM = new SetupViewModel(Session);
+            mSetupVM.SetListener(this);
+            ActiveContentViewModel = mSetupVM;
+        }
+
+        // ISetupViewListener implementation
+        public void StartSlideshow()
+        {
+            System.Windows.MessageBox.Show("MainWindow detected start button click!");
         }
     }
 }

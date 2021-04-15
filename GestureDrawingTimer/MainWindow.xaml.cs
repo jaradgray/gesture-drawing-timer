@@ -14,14 +14,13 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestureDrawingTimer.viewmodels;
 using GestureDrawingTimer.views;
-using static GestureDrawingTimer.views.SetupUserControl;
 
 namespace GestureDrawingTimer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, ISetupUserControlListener
+    public partial class MainWindow : Window
     {
         // Instance variables
         private MainWindowViewModel mViewModel;
@@ -46,13 +45,6 @@ namespace GestureDrawingTimer
 
             // Initialize to viewModel's properties
             ActiveContentViewModel_Change(mViewModel.ActiveContentViewModel);
-        }
-
-
-        // ISetupUserControlListener implementation
-        public void StartSlideshow()
-        {
-            contentControl.Content = new SlideshowUserControl();
         }
 
 
