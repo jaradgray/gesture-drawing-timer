@@ -55,8 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseINPC.cs" />
+    <Compile Include="models\Model.cs" />
+    <Compile Include="models\RootImageDirectory.cs" />
+    <Compile Include="models\Session.cs" />
+    <Compile Include="viewmodels\MainWindowViewModel.cs" />
     <Compile Include="viewmodels\SetupUserControlViewModel.cs" />
-    <Compile Include="viewmodels\BaseINPC.cs" />
     <Compile Include="views\SetupUserControl.xaml.cs">
       <DependentUpon>SetupUserControl.xaml</DependentUpon>
     </Compile>
