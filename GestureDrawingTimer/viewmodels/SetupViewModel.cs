@@ -9,6 +9,15 @@ namespace GestureDrawingTimer.viewmodels
 {
     public class SetupViewModel : BaseINPC
     {
+        // Listener interface to notify other app components of relevant events
+        public interface ISetupViewListener
+        {
+            void StartSlideshow();
+        }
+        private ISetupViewListener mListener;
+        public void SetListener(ISetupViewListener listener) { mListener = listener; }
+
+
         // Properties and their backing fields
         private string _selectedFolderPath;
         public string SelectedFolderPath
@@ -91,6 +100,15 @@ namespace GestureDrawingTimer.viewmodels
                 Properties.Settings.Default.Save(); // persist settings across application settings
                 // update member
                 SelectedFolderPath = path;
+            }
+        }
+
+        public void StartButton_Click()
+        {
+            // Notify listener if it exists
+            if (mListener != null)
+            {
+                mListener.StartSlideshow();
             }
         }
 

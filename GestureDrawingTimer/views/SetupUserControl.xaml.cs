@@ -21,15 +21,6 @@ namespace GestureDrawingTimer.views
     /// </summary>
     public partial class SetupUserControl : UserControl
     {
-        // Listener interface to notify other app components of relevant events
-        public interface ISetupUserControlListener
-        {
-            void StartSlideshow();
-        }
-        private ISetupUserControlListener mListener;
-        public void SetListener(ISetupUserControlListener listener) { mListener = listener; }
-
-
         // Instance variables
         private SetupViewModel mViewModel;
 
@@ -106,11 +97,7 @@ namespace GestureDrawingTimer.views
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            // Notify listener if it exists
-            if (mListener != null)
-            {
-                mListener.StartSlideshow();
-            }
+            mViewModel.StartButton_Click();
         }
 
 
