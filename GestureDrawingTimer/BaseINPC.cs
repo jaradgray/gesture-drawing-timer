@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace GestureDrawingTimer
 {
-    class BaseINPC : INotifyPropertyChanged
+    public class BaseINPC : INotifyPropertyChanged
     {
         // Implement notifying PropertyChanged functionality
         public event PropertyChangedEventHandler PropertyChanged; // required by INotifyPropertyChanged interface
