@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseINPC.cs" />
+    <Compile Include="components\SecondsTimer.cs" />
     <Compile Include="models\Session.cs" />
     <Compile Include="viewmodels\MainWindowViewModel.cs" />
     <Compile Include="viewmodels\SessionViewModel.cs" />

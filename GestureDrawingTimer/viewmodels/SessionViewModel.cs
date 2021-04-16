@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GestureDrawingTimer.components;
 using GestureDrawingTimer.models;
 
 namespace GestureDrawingTimer.viewmodels
@@ -42,15 +43,46 @@ namespace GestureDrawingTimer.viewmodels
                 OnPropertyChanged();
             }
         }
+        private int _remainingSeconds;
+        public int RemainingSeconds
+        {
+            get { return _remainingSeconds; }
+            private set
+            {
+                if (value == _remainingSeconds) return;
+                _remainingSeconds = value;
+                OnPropertyChanged();
+            }
+        }
 
         // Instance variables
         private Session mSession;
         private List<string> mShuffledImagePaths;
+        private SecondsTimer mTimer;
 
         // Constructor
         public SessionViewModel(Session session)
         {
+            // Set instance variables
             mSession = session;
+            mTimer = new SecondsTimer(mSession.Interval);
+            // shuffle Session's list of image paths
+            Random randy = new Random();
+            mShuffledImagePaths = mSession.ImagePaths.OrderBy(path => randy.Next()).ToList();
+
+            // Handle changes to SecondsTimer's properties
+            mTimer.PropertyChanged += (sender, args) =>
+            {
+                switch (args.PropertyName)
+                {
+                    case "State":
+                        IntervalTimerState_Change(mTimer.State);
+                        break;
+                    case "RemainingSeconds":
+                        IntervalTimerRemainingSeconds_Change(mTimer.RemainingSeconds);
+                        break;
+                }
+            };
 
             // Handle changes to Session's properties
             mSession.PropertyChanged += (sender, args) =>
@@ -63,12 +95,12 @@ namespace GestureDrawingTimer.viewmodels
                 }
             };
 
+            // Initialize view to SecondsTimer's properties
+            IntervalTimerState_Change(mTimer.State);
+            IntervalTimerRemainingSeconds_Change(mTimer.RemainingSeconds);
+
             // Initialize view to Session's properties
             SessionState_Change(mSession.State);
-
-            // Shuffle Session's list of image paths
-            Random randy = new Random();
-            mShuffledImagePaths = mSession.ImagePaths.OrderBy(path => randy.Next()).ToList();
 
             // Display first image
             CurrentImageIndex = 0;
@@ -130,13 +162,31 @@ namespace GestureDrawingTimer.viewmodels
             return (k %= m) < 0 ? k + m : k;
         }
 
+        private void IntervalTimerState_Change(SecondsTimer.TimerState state)
+        {
+            switch (state)
+            {
+                case SecondsTimer.TimerState.Started:
+                    break;
+                case SecondsTimer.TimerState.Elapsed:
+                    // TODO show next image or whatnot
+                    System.Windows.MessageBox.Show("TODO handle interval elapsed");
+                    break;
+            }
+        }
+
+        private void IntervalTimerRemainingSeconds_Change(int seconds)
+        {
+            this.RemainingSeconds = seconds;
+        }
+
         private void SessionState_Change(Session.SessionState state)
         {
             switch (state)
             {
                 case Session.SessionState.Started:
-                    // TODO start/restart interval timer
-                    System.Windows.MessageBox.Show("TODO start interval timer");
+                    // TODO may need to do something special to restart interval timer ?
+                    mTimer.Start();
                     break;
             }
         }
