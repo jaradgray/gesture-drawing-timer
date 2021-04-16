@@ -146,6 +146,9 @@ namespace GestureDrawingTimer.viewmodels
                 case Key.Right:
                     ShowNextImage();
                     break;
+                case Key.Space:
+                    PauseResumeButton_Click(); // handle as if the pause/resume button was clicked, since we already have the method defined
+                    break;
             }
         }
 
