@@ -59,5 +59,15 @@ namespace GestureDrawingTimer.views
             BitmapImage img = new BitmapImage(new Uri(path));
             imageContainer.Source = img;
         }
+
+        private void PrevButton_Click(object sender, RoutedEventArgs e)
+        {
+            mViewModel.PrevButton_Click();
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            mViewModel.NextButton_Click();
+        }
     }
 }

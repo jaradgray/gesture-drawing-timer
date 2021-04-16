@@ -86,6 +86,10 @@ namespace GestureDrawingTimer.viewmodels
             }
         }
 
+        public void PrevButton_Click() { ShowPreviousImage(); }
+
+        public void NextButton_Click() { ShowNextImage(); }
+
         // Private methods
         private void ShowNextImage()
         {
