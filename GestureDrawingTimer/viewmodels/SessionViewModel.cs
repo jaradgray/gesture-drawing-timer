@@ -65,7 +65,8 @@ namespace GestureDrawingTimer.viewmodels
         {
             // Set instance variables
             mSession = session;
-            mTimer = new SecondsTimer(mSession.Interval);
+            //mTimer = new SecondsTimer(mSession.Interval);
+            mTimer = new SecondsTimer(5);
             // shuffle Session's list of image paths
             Random randy = new Random();
             mShuffledImagePaths = mSession.ImagePaths.OrderBy(path => randy.Next()).ToList();
@@ -169,8 +170,8 @@ namespace GestureDrawingTimer.viewmodels
                 case SecondsTimer.TimerState.Started:
                     break;
                 case SecondsTimer.TimerState.Elapsed:
-                    // TODO show next image or whatnot
-                    System.Windows.MessageBox.Show("TODO handle interval elapsed");
+                    ShowNextImage();
+                    mTimer.Restart();
                     break;
             }
         }

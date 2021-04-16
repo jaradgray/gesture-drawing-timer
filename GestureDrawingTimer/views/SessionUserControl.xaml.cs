@@ -37,7 +37,8 @@ namespace GestureDrawingTimer.views
                 switch (args.PropertyName)
                 {
                     case "CurrentImagePath":
-                        CurrentImagePath_Change(mViewModel.CurrentImagePath);
+                        // UI will be updated and it could be from a background thread, execute on main thread
+                        this.Dispatcher.Invoke(() => CurrentImagePath_Change(mViewModel.CurrentImagePath));
                         break;
                     case "RemainingSeconds":
                         // UI will be update (from another thread); must execute on main thread
