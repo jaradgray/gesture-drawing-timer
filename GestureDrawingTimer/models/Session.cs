@@ -30,6 +30,9 @@ namespace GestureDrawingTimer.models
             }
         }
         private int _interval;
+        /// <summary>
+        /// The number of seconds each image will be shown before switching to the next image
+        /// </summary>
         public int Interval
         {
             get { return _interval; }
