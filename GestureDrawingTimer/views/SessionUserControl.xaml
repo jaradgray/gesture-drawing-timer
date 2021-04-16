@@ -30,7 +30,7 @@
                 Click="PrevButton_Click"/>
             <Button
                 x:Name="pauseResumeButton"
-                Content="Pause/Resume"
+                Content="pauseResumeButton"
                 Click="PauseResumeButton_Click"/>
             <Button
                 x:Name="NextButton"
