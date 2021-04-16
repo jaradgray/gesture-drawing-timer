@@ -44,12 +44,14 @@ namespace GestureDrawingTimer.components
         }
 
         // Instance variables
+        private int mTotalSeconds;
         private Timer mTimer;
 
         // Constructor
         public SecondsTimer(int totalSeconds)
         {
             // Initialize instance variables
+            mTotalSeconds = totalSeconds;
             mTimer = new Timer();
             mTimer.Interval = 1000;
             mTimer.AutoReset = true;
@@ -65,6 +67,12 @@ namespace GestureDrawingTimer.components
         {
             mTimer.Enabled = true;
             State = TimerState.Started;
+        }
+
+        public void Restart()
+        {
+            RemainingSeconds = mTotalSeconds;
+            Start();
         }
 
         // Private methods
