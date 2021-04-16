@@ -56,7 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseINPC.cs" />
-    <Compile Include="models\Model.cs" />
     <Compile Include="models\Session.cs" />
     <Compile Include="viewmodels\MainWindowViewModel.cs" />
     <Compile Include="viewmodels\SessionViewModel.cs" />
