@@ -41,6 +41,11 @@ namespace GestureDrawingTimer.viewmodels
                 if (value.Equals(_currentImagePath)) return;
                 _currentImagePath = value;
                 OnPropertyChanged();
+                // if Session is underway, restart timer
+                if (mSession.State == Session.SessionState.Started)
+                {
+                    mTimer.Restart();
+                }
             }
         }
         private int _remainingSeconds;
@@ -171,7 +176,6 @@ namespace GestureDrawingTimer.viewmodels
                     break;
                 case SecondsTimer.TimerState.Elapsed:
                     ShowNextImage();
-                    mTimer.Restart();
                     break;
             }
         }
@@ -186,7 +190,6 @@ namespace GestureDrawingTimer.viewmodels
             switch (state)
             {
                 case Session.SessionState.Started:
-                    // TODO may need to do something special to restart interval timer ?
                     mTimer.Start();
                     break;
             }
