@@ -42,7 +42,7 @@ namespace GestureDrawingTimer.viewmodels
                 _currentImagePath = value;
                 OnPropertyChanged();
                 // if Session is underway, restart timer
-                if (mSession.State == Session.SessionState.Started)
+                if (SessionState == Session.SessionState.Started)
                 {
                     mTimer.Restart();
                 }
@@ -56,6 +56,16 @@ namespace GestureDrawingTimer.viewmodels
             {
                 if (value == _remainingSeconds) return;
                 _remainingSeconds = value;
+                OnPropertyChanged();
+            }
+        }
+        public Session.SessionState SessionState
+        {
+            get { return mSession.State; }
+            private set
+            {
+                if (value == mSession.State) return;
+                mSession.State = value;
                 OnPropertyChanged();
             }
         }
@@ -112,8 +122,8 @@ namespace GestureDrawingTimer.viewmodels
             CurrentImageIndex = 0;
             CurrentImagePath = mShuffledImagePaths[CurrentImageIndex];
 
-            // Start the interval timer by setting Session's state to Started
-            mSession.State = Session.SessionState.Started;
+            // Start the interval timer by setting SessionState to Started
+            SessionState = Session.SessionState.Started;
         }
 
         // Public methods
@@ -148,10 +158,10 @@ namespace GestureDrawingTimer.viewmodels
             switch (mSession.State)
             {
                 case Session.SessionState.Started:
-                    mSession.State = Session.SessionState.Paused;
+                    SessionState = Session.SessionState.Paused;
                     break;
                 case Session.SessionState.Paused:
-                    mSession.State = Session.SessionState.Started;
+                    SessionState = Session.SessionState.Started;
                     break;
             }
         }
