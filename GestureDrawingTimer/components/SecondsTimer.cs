@@ -16,6 +16,7 @@ namespace GestureDrawingTimer.components
         {
             Initialized,
             Started,
+            Paused,
             Elapsed
         }
 
@@ -73,6 +74,12 @@ namespace GestureDrawingTimer.components
         {
             RemainingSeconds = mTotalSeconds;
             Start();
+        }
+
+        public void Pause()
+        {
+            mTimer.Enabled = false;
+            State = TimerState.Paused;
         }
 
         // Private methods
