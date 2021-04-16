@@ -9,5 +9,11 @@
     <Grid>
         <Image
             x:Name="imageContainer"/>
+        <Button
+            x:Name="backButton"
+            Content="Back"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BackButton_Click"/>
     </Grid>
 </UserControl>

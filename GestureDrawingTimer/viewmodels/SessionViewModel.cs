@@ -9,6 +9,14 @@ namespace GestureDrawingTimer.viewmodels
 {
     public class SessionViewModel : BaseINPC
     {
+        // Listener interface to notify other app components of relevant events
+        public interface ISessionViewListener
+        {
+            void Back_Action();
+        }
+        private ISessionViewListener mListener;
+        public void SetListener(ISessionViewListener listener) { mListener = listener; }
+
         // Properties
         private int _currentImageIndex;
         // TODO Session doesn't need this property...
@@ -52,6 +60,16 @@ namespace GestureDrawingTimer.viewmodels
             CurrentImagePath = mShuffledImagePaths[CurrentImageIndex];
 
             // TODO start an interval timer
+        }
+
+        // Public methods
+        public void Back_Action()
+        {
+            // Notify listener if it exists
+            if (mListener != null)
+            {
+                mListener.Back_Action();
+            }
         }
     }
 }

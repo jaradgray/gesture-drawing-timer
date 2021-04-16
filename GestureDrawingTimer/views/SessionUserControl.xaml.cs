@@ -46,6 +46,12 @@ namespace GestureDrawingTimer.views
             CurrentImagePath_Change(mViewModel.CurrentImagePath);
         }
 
+        // UI event handlers
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            mViewModel.Back_Action();
+        }
+
 
         // Private methods
         private void CurrentImagePath_Change(string path)

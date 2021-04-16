@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GestureDrawingTimer.models;
+using static GestureDrawingTimer.viewmodels.SessionViewModel;
 using static GestureDrawingTimer.viewmodels.SetupViewModel;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    class MainWindowViewModel : BaseINPC, ISetupViewListener
+    class MainWindowViewModel : BaseINPC, ISetupViewListener, ISessionViewListener
     {
         // Properties
         public Session Session;
@@ -26,6 +27,7 @@ namespace GestureDrawingTimer.viewmodels
 
         // Instance variables
         private SetupViewModel mSetupVM;
+        private SessionViewModel mSessionVM;
 
         // Constructor
         public MainWindowViewModel()
@@ -42,7 +44,17 @@ namespace GestureDrawingTimer.viewmodels
         // ISetupViewListener implementation
         public void StartSlideshow()
         {
-            ActiveContentViewModel = new SessionViewModel(Session);
+            mSessionVM = new SessionViewModel(Session);
+            mSessionVM.SetListener(this);
+            ActiveContentViewModel = mSessionVM;
+        }
+
+        // ISessionViewListener implementation
+        public void Back_Action()
+        {
+            // TODO dispose mSessionVM ???
+            mSessionVM = null;
+            ActiveContentViewModel = mSetupVM;
         }
     }
 }
