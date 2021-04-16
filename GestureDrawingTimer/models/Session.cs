@@ -22,7 +22,7 @@ namespace GestureDrawingTimer.models
         public SessionState State
         {
             get { return _state; }
-            private set
+            set
             {
                 if (value == _state) return;
                 _state = value;

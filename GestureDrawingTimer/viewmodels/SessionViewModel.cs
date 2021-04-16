@@ -52,6 +52,20 @@ namespace GestureDrawingTimer.viewmodels
         {
             mSession = session;
 
+            // Handle changes to Session's properties
+            mSession.PropertyChanged += (sender, args) =>
+            {
+                switch (args.PropertyName)
+                {
+                    case "State":
+                        SessionState_Change(mSession.State);
+                        break;
+                }
+            };
+
+            // Initialize view to Session's properties
+            SessionState_Change(mSession.State);
+
             // Shuffle Session's list of image paths
             Random randy = new Random();
             mShuffledImagePaths = mSession.ImagePaths.OrderBy(path => randy.Next()).ToList();
@@ -60,7 +74,8 @@ namespace GestureDrawingTimer.viewmodels
             CurrentImageIndex = 0;
             CurrentImagePath = mShuffledImagePaths[CurrentImageIndex];
 
-            // TODO start an interval timer
+            // Start the interval timer by setting Session's state to Started
+            mSession.State = Session.SessionState.Started;
         }
 
         // Public methods
@@ -113,6 +128,17 @@ namespace GestureDrawingTimer.viewmodels
         private int Mod(int k, int m)
         {
             return (k %= m) < 0 ? k + m : k;
+        }
+
+        private void SessionState_Change(Session.SessionState state)
+        {
+            switch (state)
+            {
+                case Session.SessionState.Started:
+                    // TODO start/restart interval timer
+                    System.Windows.MessageBox.Show("TODO start interval timer");
+                    break;
+            }
         }
     }
 }
