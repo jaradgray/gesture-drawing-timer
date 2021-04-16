@@ -72,6 +72,7 @@ namespace GestureDrawingTimer.components
 
         public void Restart()
         {
+            mTimer.Enabled = false;
             RemainingSeconds = mTotalSeconds;
             Start();
         }
