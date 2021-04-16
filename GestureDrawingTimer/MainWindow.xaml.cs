@@ -14,30 +14,60 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GestureDrawingTimer.viewmodels;
 using GestureDrawingTimer.views;
-using static GestureDrawingTimer.views.SetupUserControl;
 
 namespace GestureDrawingTimer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, ISetupUserControlListener
+    public partial class MainWindow : Window
     {
+        // Instance variables
+        private MainWindowViewModel mViewModel;
+
+        // Constructor
         public MainWindow()
         {
             InitializeComponent();
 
-            // Show the UserControl for the setup screen
-            SetupUserControl setupUC = new SetupUserControl();
-            setupUC.SetListener(this);
-            contentControl.Content = setupUC;
+            mViewModel = new MainWindowViewModel();
+
+            // Handle changes to viewModel's properties
+            mViewModel.PropertyChanged += (sender, args) =>
+            {
+                switch (args.PropertyName)
+                {
+                    case "ActiveContentViewModel":
+                        ActiveContentViewModel_Change(mViewModel.ActiveContentViewModel);
+                        break;
+                }
+            };
+
+            // Initialize to viewModel's properties
+            ActiveContentViewModel_Change(mViewModel.ActiveContentViewModel);
+        }
+
+        // UI event handlers
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            mViewModel.KeyDown_Action(e);
         }
 
 
-        // ISetupUserControlListener implementation
-        public void StartSlideshow()
+        // Private methods
+
+        private void ActiveContentViewModel_Change(object viewModel)
         {
-            contentControl.Content = new SlideshowUserControl();
+            // Set contentControl's Content based on runtime type of parameter
+            Type t = viewModel.GetType();
+            if (t == typeof(SetupViewModel))
+            {
+                contentControl.Content = new SetupUserControl((SetupViewModel)viewModel);
+            }
+            else if (t == typeof(SessionViewModel))
+            {
+                contentControl.Content = new SessionUserControl((SessionViewModel)viewModel);
+            }
         }
     }
 }

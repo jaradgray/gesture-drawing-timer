@@ -3,89 +3,85 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GestureDrawingTimer.models;
 
 namespace GestureDrawingTimer.viewmodels
 {
-    class SetupUserControlViewModel : ViewModelBase
+    public class SetupViewModel : BaseINPC
     {
-        // Properties and their backing fields
+        // Listener interface to notify other app components of relevant events
+        public interface ISetupViewListener
+        {
+            void StartSlideshow();
+        }
+        private ISetupViewListener mListener;
+        public void SetListener(ISetupViewListener listener) { mListener = listener; }
 
+
+        // Properties and their backing fields
         private string _selectedFolderPath;
         public string SelectedFolderPath
         {
             get { return _selectedFolderPath; }
             private set
             {
-                if (value != null && !value.Equals(_selectedFolderPath))
-                {
-                    _selectedFolderPath = value;
-                    OnPropertyChanged();
-                    // Update image-related members
-                    UpdateImagePaths();
-                }
+                if (value == null || value.Equals(_selectedFolderPath)) return;
+                _selectedFolderPath = value;
+                OnPropertyChanged();
+                // Update image-related members
+                UpdateImagePaths();
             }
         }
-
         private int _numImages;
         public int NumImages
         {
             get { return _numImages; }
             private set
             {
-                if (_numImages != value)
-                {
-                    _numImages = value;
-                    OnPropertyChanged();
-                }
+                if (value == _numImages) return;
+                _numImages = value;
+                OnPropertyChanged();
             }
         }
-
         private int _numSubfolders;
         public int NumSubfolders
         {
             get { return _numSubfolders; }
             private set
             {
-                if (_numSubfolders != value)
-                {
-                    _numSubfolders = value;
-                    OnPropertyChanged();
-                }
+                if (value == _numSubfolders) return;
+                _numSubfolders = value;
+                OnPropertyChanged();
             }
         }
-
-        private int _interval;
         /// <summary>
         /// The number of seconds an image will be displayed before switching to the next image
         /// </summary>
         public int Interval
         {
-            get { return _interval; }
+            get { return mSession.Interval; }
             set
             {
-                if (_interval != value)
-                {
-                    _interval = value;
-                    OnPropertyChanged();
-                    // Persist interval value
-                    Properties.Settings.Default.ImageInterval = value;
-                    Properties.Settings.Default.Save(); // persist value across application sessions
-                }
+                if (value == mSession.Interval) return;
+                mSession.Interval = value;
+                OnPropertyChanged();
+                // Persist interval value
+                Properties.Settings.Default.ImageInterval = mSession.Interval;
+                Properties.Settings.Default.Save(); // persist value across application sessions
             }
         }
 
-
-        // Private variables
-        private List<string> mImagePaths = new List<string>();
-
+        // Instance variables
+        private Session mSession;
 
         // Constructor
-        public SetupUserControlViewModel()
+        public SetupViewModel(Session session)
         {
+            mSession = session;
             // Initialize properties from persisted data
             SelectedFolderPath = Properties.Settings.Default.SelectedFolderPath;
             Interval = Properties.Settings.Default.ImageInterval;
-        }
+        }        
 
 
         // Public methods
@@ -107,6 +103,15 @@ namespace GestureDrawingTimer.viewmodels
             }
         }
 
+        public void StartButton_Click()
+        {
+            // Notify listener if it exists
+            if (mListener != null)
+            {
+                mListener.StartSlideshow();
+            }
+        }
+
 
         // Private methods
 
@@ -118,10 +123,10 @@ namespace GestureDrawingTimer.viewmodels
         {
             // Get paths of all supported image files in the currently selected folder and all of its subfolders
             string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
-            mImagePaths = GetFilePathsInDirectory(SelectedFolderPath, true, validExtensions);
+            List<string> paths = GetFilePathsInDirectory(SelectedFolderPath, true, validExtensions);
 
             // Handle error
-            if (mImagePaths == null)
+            if (paths == null)
             {
                 // GetFilesPathsInDirectory() returned null, so the folder at SelectedFolderPath doesn't exist
                 SelectedFolderPath = "";
@@ -129,7 +134,8 @@ namespace GestureDrawingTimer.viewmodels
             }
 
             // Update properties
-            NumImages = mImagePaths.Count;
+            mSession.ImagePaths = paths;
+            NumImages = mSession.ImagePaths.Count;
             string[] allSubfolders = System.IO.Directory.GetDirectories(SelectedFolderPath, "*", System.IO.SearchOption.AllDirectories);
             NumSubfolders = allSubfolders.Length;
         }

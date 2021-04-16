@@ -55,13 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="viewmodels\SetupUserControlViewModel.cs" />
-    <Compile Include="viewmodels\ViewModelBase.cs" />
+    <Compile Include="BaseINPC.cs" />
+    <Compile Include="models\Session.cs" />
+    <Compile Include="viewmodels\MainWindowViewModel.cs" />
+    <Compile Include="viewmodels\SessionViewModel.cs" />
+    <Compile Include="viewmodels\SetupViewModel.cs" />
     <Compile Include="views\SetupUserControl.xaml.cs">
       <DependentUpon>SetupUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="views\SlideshowUserControl.xaml.cs">
-      <DependentUpon>SlideshowUserControl.xaml</DependentUpon>
+    <Compile Include="views\SessionUserControl.xaml.cs">
+      <DependentUpon>SessionUserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -87,7 +90,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="views\SlideshowUserControl.xaml">
+    <Page Include="views\SessionUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
