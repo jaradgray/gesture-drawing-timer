@@ -75,7 +75,40 @@ namespace GestureDrawingTimer.viewmodels
 
         public void KeyDown_Action(KeyEventArgs args)
         {
-            System.Windows.MessageBox.Show("detected KeyDown in SessionVM!");
+            switch (args.Key)
+            {
+                case Key.Left:
+                    ShowPreviousImage();
+                    break;
+                case Key.Right:
+                    ShowNextImage();
+                    break;
+            }
+        }
+
+        // Private methods
+        private void ShowNextImage()
+        {
+            CurrentImageIndex = Mod(CurrentImageIndex + 1, mShuffledImagePaths.Count);
+            CurrentImagePath = mShuffledImagePaths[CurrentImageIndex];
+        }
+
+        private void ShowPreviousImage()
+        {
+            CurrentImageIndex = Mod(CurrentImageIndex - 1, mShuffledImagePaths.Count);
+            CurrentImagePath = mShuffledImagePaths[CurrentImageIndex];
+        }
+
+        /// <summary>
+        /// Nifty little helper function implementing expected modulo (%) behavior (i.e. result is always positive)
+        /// From https://stackoverflow.com/a/23214321
+        /// </summary>
+        /// <param name="k"></param>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        private int Mod(int k, int m)
+        {
+            return (k %= m) < 0 ? k + m : k;
         }
     }
 }
