@@ -29,6 +29,10 @@
                 Content="Prev"
                 Click="PrevButton_Click"/>
             <Button
+                x:Name="pauseResumeButton"
+                Content="Pause/Resume"
+                Click="PauseResumeButton_Click"/>
+            <Button
                 x:Name="NextButton"
                 Content="Next"
                 Click="NextButton_Click"/>

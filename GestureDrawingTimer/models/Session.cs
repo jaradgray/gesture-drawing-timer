@@ -13,6 +13,7 @@ namespace GestureDrawingTimer.models
         {
             Init,
             Started,
+            Paused,
             Finished
         }
 

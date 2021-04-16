@@ -143,6 +143,19 @@ namespace GestureDrawingTimer.viewmodels
 
         public void NextButton_Click() { ShowNextImage(); }
 
+        public void PauseResumeButton_Click()
+        {
+            switch (mSession.State)
+            {
+                case Session.SessionState.Started:
+                    mSession.State = Session.SessionState.Paused;
+                    break;
+                case Session.SessionState.Paused:
+                    mSession.State = Session.SessionState.Started;
+                    break;
+            }
+        }
+
         // Private methods
         private void ShowNextImage()
         {
@@ -191,6 +204,9 @@ namespace GestureDrawingTimer.viewmodels
             {
                 case Session.SessionState.Started:
                     mTimer.Start();
+                    break;
+                case Session.SessionState.Paused:
+                    mTimer.Pause();
                     break;
             }
         }

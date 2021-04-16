@@ -82,5 +82,10 @@ namespace GestureDrawingTimer.views
         {
             mViewModel.NextButton_Click();
         }
+
+        private void PauseResumeButton_Click(object sender, RoutedEventArgs e)
+        {
+            mViewModel.PauseResumeButton_Click();
+        }
     }
 }
