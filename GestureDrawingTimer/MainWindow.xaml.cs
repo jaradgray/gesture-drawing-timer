@@ -47,6 +47,12 @@ namespace GestureDrawingTimer
             ActiveContentViewModel_Change(mViewModel.ActiveContentViewModel);
         }
 
+        // UI event handlers
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            mViewModel.KeyDown_Action(e);
+        }
+
 
         // Private methods
 

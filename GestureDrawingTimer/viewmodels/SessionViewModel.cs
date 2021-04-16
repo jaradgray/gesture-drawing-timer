@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using GestureDrawingTimer.models;
 
 namespace GestureDrawingTimer.viewmodels
@@ -70,6 +71,11 @@ namespace GestureDrawingTimer.viewmodels
             {
                 mListener.Back_Action();
             }
+        }
+
+        public void KeyDown_Action(KeyEventArgs args)
+        {
+            System.Windows.MessageBox.Show("detected KeyDown in SessionVM!");
         }
     }
 }

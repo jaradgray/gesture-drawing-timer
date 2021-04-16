@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using GestureDrawingTimer.models;
 using static GestureDrawingTimer.viewmodels.SessionViewModel;
 using static GestureDrawingTimer.viewmodels.SetupViewModel;
@@ -55,6 +56,16 @@ namespace GestureDrawingTimer.viewmodels
             // TODO dispose mSessionVM ???
             mSessionVM = null;
             ActiveContentViewModel = mSetupVM;
+        }
+
+        // Public methods
+        public void KeyDown_Action(KeyEventArgs args)
+        {
+            // Forward event to active viewModel
+            if (ActiveContentViewModel == mSessionVM)
+            {
+                mSessionVM.KeyDown_Action(args);
+            }
         }
     }
 }
