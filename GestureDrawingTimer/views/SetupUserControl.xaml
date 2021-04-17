@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestureDrawingTimer.views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Foreground="#DDFFFFFF">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -38,24 +39,41 @@
                 Grid.Row="1"
                 Orientation="Vertical">
             <TextBlock
-                    Text="Gesture Drawing Timer" />
+                Text="Gesture Drawing Timer"
+                FontSize="32"
+                TextAlignment="Center"
+                Margin="0 0 0 16"/>
             <Button
                     x:Name="selectFolderButton"
                     Content="Select a folder"
                     Click="SelectFolderButton_Click"
-                    Style="{StaticResource Button.Normal}" />
+                    Style="{StaticResource Button.Normal}"
+                Margin="0 0 0 8"/>
             <TextBlock
-                    x:Name="folderTextBlock"
-                    Text="folderTextBlock" />
+                x:Name="folderTextBlock"
+                Text="folderTextBlock"
+                FontSize="16"
+                TextAlignment="Center"
+                Foreground="#87FFFFFF" />
             <TextBlock
-                    x:Name="imagesInFolderTextBlock"
-                    Text="imagesInFolderTextBlock" />
+                x:Name="imagesInFolderTextBlock"
+                Text="imagesInFolderTextBlock"
+                FontSize="16"
+                TextAlignment="Center"
+                Foreground="#87FFFFFF"
+                Margin="0 0 0 16"/>
             <TextBlock
-                    x:Name="intervalTextBlock"
-                    Text="intervalTextBlock" />
+                x:Name="intervalTextBlock"
+                Text="Select image interval"
+                FontSize="18"
+                TextAlignment="Center"
+                Foreground="#87FFFFFF"
+                Margin="0 0 0 8"/>
             <!-- interval buttons container -->
             <StackPanel
-                    Orientation="Horizontal">
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 16">
                 <Button
                         x:Name="intervalButton_1m"
                         Content="1m"
@@ -89,7 +107,7 @@
             </StackPanel>
             <Button
                     x:Name="startButton"
-                    Content="startButton"
+                    Content="Start drawing!"
                     Style="{StaticResource Button.HighEmphasis}" Click="StartButton_Click"/>
         </StackPanel>
     </Grid>

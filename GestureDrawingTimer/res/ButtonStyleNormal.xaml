@@ -12,7 +12,7 @@
         TargetType="{x:Type Button}">
         <!-- Overwrite default values we want changed -->
         <Setter Property="Padding" Value="8"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="Background" Value="{StaticResource Button.Background}" />
         <Setter Property="BorderBrush" Value="{StaticResource Button.Border}" />
         <Setter Property="Foreground" Value="{StaticResource Button.Foreground}" />
