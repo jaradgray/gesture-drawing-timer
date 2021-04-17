@@ -5,6 +5,7 @@
     <!-- include the style this one will be based on -->
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ButtonStyleNormal.xaml" />
+        <ResourceDictionary Source="Colors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style
@@ -12,8 +13,45 @@
         TargetType="{x:Type Button}"
         BasedOn="{StaticResource Button.Normal}">
         <!-- TODO overwrite default values I want changed -->
-        <Setter Property="Background" Value="#FFFF00FF" />
-        
+        <Setter Property="Background" Value="{StaticResource Button.HighEmphasis.Background}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        SnapsToDevicePixels="true">
+                        <ContentPresenter x:Name="contentPresenter"
+                            RecognizesAccessKey="True"
+                            Margin="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False">
+                        </ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{StaticResource Button.HighEmphasis.MouseOver.Background}" TargetName="border" />
+                            <Setter Property="BorderBrush" Value="{StaticResource Button.HighEmphasis.MouseOver.Border}" TargetName="border" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" Value="{StaticResource Button.HighEmphasis.Pressed.Background}" TargetName="border" />
+                            <Setter Property="BorderBrush" Value="{StaticResource Button.HighEmphasis.Pressed.Border}" TargetName="border" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="{StaticResource Button.HighEmphasis.Disabled.Background}" TargetName="border" />
+                            <Setter Property="BorderBrush" Value="{StaticResource Button.HighEmphasis.Disabled.Border}" TargetName="border" />
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource Button.HighEmphasis.Disabled.Foreground}" TargetName="contentPresenter" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

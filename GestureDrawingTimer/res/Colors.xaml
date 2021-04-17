@@ -5,6 +5,7 @@
     <!-- TODO maybe define all colors here, and only assign references to them to control colors below -->
     <Color x:Key="Window.Background">#FF121212</Color>
 
+    <!-- Button.Normal -->
     <SolidColorBrush x:Key="Button.Background" Color="#3DFFFFFF"/> <!-- 24% white -->
     <SolidColorBrush x:Key="Button.Border" Color="Transparent"/>
     <SolidColorBrush x:Key="Button.Foreground" Color="#DDFFFFFF"/>
@@ -15,5 +16,16 @@
     <SolidColorBrush x:Key="Button.Disabled.Background" Color="#3DFFFFFF"/> <!-- 24% white -->
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#61FFFFFF"/>
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="Transparent"/>
+
+    <!-- Button.HighEmphasis -->
+    <SolidColorBrush x:Key="Button.HighEmphasis.Background" Color="#0166dc"/>
+    <SolidColorBrush x:Key="Button.HighEmphasis.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="Button.HighEmphasis.MouseOver.Background" Color="#0b6cdd"/> <!-- background with 4% white overlay -->
+    <SolidColorBrush x:Key="Button.HighEmphasis.MouseOver.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="Button.HighEmphasis.Pressed.Background" Color="#1b76e0"/> <!-- background with 10% white overlay -->
+    <SolidColorBrush x:Key="Button.HighEmphasis.Pressed.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Background" Color="#3DFFFFFF"/>
+    <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Foreground" Color="#61FFFFFF"/>
+    <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Border" Color="Transparent"/>
 
 </ResourceDictionary>
