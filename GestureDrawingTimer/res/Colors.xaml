@@ -6,14 +6,14 @@
     <Color x:Key="Window.Background">#FF121212</Color>
 
     <!-- Button.Normal -->
-    <SolidColorBrush x:Key="Button.Background" Color="#3DFFFFFF"/> <!-- 24% white -->
+    <SolidColorBrush x:Key="Button.Background" Color="#19FFFFFF"/> <!-- 10% white -->
     <SolidColorBrush x:Key="Button.Border" Color="Transparent"/>
     <SolidColorBrush x:Key="Button.Foreground" Color="#DDFFFFFF"/>
-    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#47FFFFFF"/> <!-- 28% white -->
+    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#23FFFFFF"/> <!-- 14% white -->
     <SolidColorBrush x:Key="Button.MouseOver.Border" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Pressed.Background" Color="#56FFFFFF"/> <!-- 34% white -->
+    <SolidColorBrush x:Key="Button.Pressed.Background" Color="#33FFFFFF"/> <!-- 20% white -->
     <SolidColorBrush x:Key="Button.Pressed.Border" Color="Transparent"/>
-    <SolidColorBrush x:Key="Button.Disabled.Background" Color="#3DFFFFFF"/> <!-- 24% white -->
+    <SolidColorBrush x:Key="Button.Disabled.Background" Color="#19FFFFFF"/> <!-- 10% white -->
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#61FFFFFF"/>
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="Transparent"/>
 
