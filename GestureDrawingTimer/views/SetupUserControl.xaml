@@ -21,16 +21,14 @@
         Grid.Column="0"
         Grid.Row="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8" />
-            <ColumnDefinition Width="*" />
-            <!-- main content -->
-            <ColumnDefinition Width="8" />
+            <ColumnDefinition MinWidth="8" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition MinWidth="8" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="8" />
-            <RowDefinition Height="*" />
-            <!-- main content -->
-            <RowDefinition Height="8" />
+            <RowDefinition MinHeight="8" />
+            <RowDefinition Height="auto" />
+            <RowDefinition MinHeight="8" />
         </Grid.RowDefinitions>
 
         <!-- main content container -->
