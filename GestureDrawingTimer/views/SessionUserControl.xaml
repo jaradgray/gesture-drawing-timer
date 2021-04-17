@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:GestureDrawingTimer.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/res/ImageButtonStyleNormal.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid>
         <Image
             x:Name="imageContainer"/>
@@ -14,6 +22,7 @@
             Content="Back"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            Style="{StaticResource ImageButton.Normal}"
             Click="BackButton_Click"/>
         <TextBlock
             x:Name="remainingTimeTextBlock"
@@ -27,14 +36,17 @@
             <Button
                 x:Name="prevButton"
                 Content="Prev"
+                Style="{StaticResource ImageButton.Normal}"
                 Click="PrevButton_Click"/>
             <Button
                 x:Name="pauseResumeButton"
                 Content="pauseResumeButton"
+                Style="{StaticResource ImageButton.Normal}"
                 Click="PauseResumeButton_Click"/>
             <Button
                 x:Name="NextButton"
                 Content="Next"
+                Style="{StaticResource ImageButton.Normal}"
                 Click="NextButton_Click"/>
         </StackPanel>
     </Grid>

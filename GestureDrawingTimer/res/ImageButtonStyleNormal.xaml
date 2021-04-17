@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GestureDrawingTimer.res">
+
+    <Style
+        x:Key="ImageButton.Normal"
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="{x:Type Button}">
+        <!-- TODO overwrite default values I want changed -->
+        <Setter Property="Background" Value="#FFFF0000" />
+
+    </Style>
+
+</ResourceDictionary>
