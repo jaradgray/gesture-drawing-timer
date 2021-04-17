@@ -2,36 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:GestureDrawingTimer.res">
 
-    <SolidColorBrush x:Key="Button.Static.Background" Color="#40000000" />
-    <SolidColorBrush x:Key="Button.Static.Foreground" Color="#DEFFFFFF" />
-    <SolidColorBrush x:Key="Button.Static.Border" Color="#00707070" /> <!-- no border -->
-    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#50000000" />
-    <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#003C7FB1" /> <!-- no border -->
-    <SolidColorBrush x:Key="Button.Pressed.Background" Color="#60000000" />
-    <SolidColorBrush x:Key="Button.Pressed.Border" Color="#002C628B" /> <!-- no border -->
-    <SolidColorBrush x:Key="Button.Disabled.Background" Color="#222222" />
-    <SolidColorBrush x:Key="Button.Disabled.Border" Color="#00ADB2B5" /> <!-- no border -->
-    <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#61FFFFFF" />
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
     <Style
         x:Key="Button.Normal"
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="{x:Type Button}">
-        <!-- TODO overwrite default values I want changed -->
-        <Setter Property="Background" Value="#FF0000FF" />
-
-    </Style>
-
-    
-    <!--<Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-        <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
-        <Setter Property="Foreground" Value="{StaticResource Button.Static.Foreground}" />
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="16"/>
+        <!-- Overwrite default values we want changed -->
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Background" Value="{StaticResource Button.Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Button.Border}" />
+        <Setter Property="Foreground" Value="{StaticResource Button.Foreground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -51,7 +35,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsDefaulted" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TargetName="border" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Background" Value="{StaticResource Button.MouseOver.Background}" TargetName="border" />
@@ -70,6 +54,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>-->
-
+    </Style>
+    
 </ResourceDictionary>
