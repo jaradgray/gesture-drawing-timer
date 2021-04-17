@@ -78,8 +78,7 @@ namespace GestureDrawingTimer.viewmodels
         {
             // Set instance variables
             mSession = session;
-            //mTimer = new SecondsTimer(mSession.Interval);
-            mTimer = new SecondsTimer(5);
+            mTimer = new SecondsTimer(mSession.Interval);
             // shuffle Session's list of image paths
             Random randy = new Random();
             mShuffledImagePaths = mSession.ImagePaths.OrderBy(path => randy.Next()).ToList();
