@@ -41,11 +41,9 @@ namespace GestureDrawingTimer.viewmodels
                 if (value.Equals(_currentImagePath)) return;
                 _currentImagePath = value;
                 OnPropertyChanged();
-                // if Session is underway, restart timer
-                if (SessionState == Session.SessionState.Started)
-                {
-                    mTimer.Restart();
-                }
+                // start/restart timer
+                mTimer.Restart();
+                SessionState = Session.SessionState.Started;
             }
         }
         private int _remainingSeconds;
