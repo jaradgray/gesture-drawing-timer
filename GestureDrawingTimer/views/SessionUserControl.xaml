@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/res/IconButtonStyleNormal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/res/images/IconsDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -56,10 +57,7 @@
                 Height="32"
                 Style="{StaticResource IconButton.Normal}"
                 Click="PauseResumeButton_Click">
-                <Path
-                    Stretch="Uniform"
-                    Fill="White"
-                    Data="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                <Path Style="{StaticResource Icon.Play}"/>
             </Button>
             <Button
                 x:Name="NextButton"
