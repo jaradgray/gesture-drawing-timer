@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/res/ImageButtonStyleNormal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/res/IconButtonStyleNormal.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -23,7 +23,7 @@
             Height="32"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Style="{StaticResource ImageButton.Normal}"
+            Style="{StaticResource IconButton.Normal}"
             Click="BackButton_Click">
             <Path
                 Stretch="Uniform"
@@ -43,7 +43,7 @@
                 x:Name="prevButton"
                 Width="32"
                 Height="32"
-                Style="{StaticResource ImageButton.Normal}"
+                Style="{StaticResource IconButton.Normal}"
                 Click="PrevButton_Click">
                 <Path
                     Stretch="Uniform"
@@ -54,7 +54,7 @@
                 x:Name="pauseResumeButton"
                 Width="32"
                 Height="32"
-                Style="{StaticResource ImageButton.Normal}"
+                Style="{StaticResource IconButton.Normal}"
                 Click="PauseResumeButton_Click">
                 <Path
                     Stretch="Uniform"
@@ -65,7 +65,7 @@
                 x:Name="NextButton"
                 Width="32"
                 Height="32"
-                Style="{StaticResource ImageButton.Normal}"
+                Style="{StaticResource IconButton.Normal}"
                 Click="NextButton_Click">
                 <Path
                     Stretch="Uniform"

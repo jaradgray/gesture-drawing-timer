@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:GestureDrawingTimer.res">
 
     <Style
-        x:Key="ImageButton.Normal"
+        x:Key="IconButton.Normal"
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="{x:Type Button}">
         <!-- TODO overwrite default values I want changed -->
