@@ -19,11 +19,17 @@
             x:Name="imageContainer"/>
         <Button
             x:Name="backButton"
-            Content="Back"
+            Width="32"
+            Height="32"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Style="{StaticResource ImageButton.Normal}"
-            Click="BackButton_Click"/>
+            Click="BackButton_Click">
+            <Path
+                Stretch="Uniform"
+                Fill="White"
+                Data="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </Button>
         <TextBlock
             x:Name="remainingTimeTextBlock"
             Text="remainingTimeTextBlock"
@@ -35,19 +41,37 @@
             VerticalAlignment="Bottom">
             <Button
                 x:Name="prevButton"
-                Content="Prev"
+                Width="32"
+                Height="32"
                 Style="{StaticResource ImageButton.Normal}"
-                Click="PrevButton_Click"/>
+                Click="PrevButton_Click">
+                <Path
+                    Stretch="Uniform"
+                    Fill="White"
+                    Data="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </Button>
             <Button
                 x:Name="pauseResumeButton"
-                Content="pauseResumeButton"
+                Width="32"
+                Height="32"
                 Style="{StaticResource ImageButton.Normal}"
-                Click="PauseResumeButton_Click"/>
+                Click="PauseResumeButton_Click">
+                <Path
+                    Stretch="Uniform"
+                    Fill="White"
+                    Data="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </Button>
             <Button
                 x:Name="NextButton"
-                Content="Next"
+                Width="32"
+                Height="32"
                 Style="{StaticResource ImageButton.Normal}"
-                Click="NextButton_Click"/>
+                Click="NextButton_Click">
+                <Path
+                    Stretch="Uniform"
+                    Fill="White"
+                    Data="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>
