@@ -16,10 +16,25 @@
     </UserControl.Resources>
     
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+        
         <Image
-            x:Name="imageContainer"/>
+            x:Name="imageContainer"
+            Grid.ColumnSpan="3"
+            Grid.RowSpan="3"/>
         <Button
             x:Name="backButton"
+            Grid.Column="1"
+            Grid.Row="1"
             Width="32"
             Height="32"
             HorizontalAlignment="Left"
@@ -33,6 +48,8 @@
         </Button>
         <TextBlock
             x:Name="remainingTimeTextBlock"
+            Grid.Column="1"
+            Grid.Row="1"
             Text="remainingTimeTextBlock"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
@@ -41,6 +58,8 @@
             FontSize="16"
             Padding="4"/>
         <StackPanel
+            Grid.Column="1"
+            Grid.Row="1"
             Orientation="Horizontal"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom">
