@@ -58,11 +58,15 @@
             FontSize="16"
             Padding="4"/>
         <StackPanel
+            x:Name="sessionControlsContainer"
             Grid.Column="1"
             Grid.Row="1"
             Orientation="Horizontal"
             HorizontalAlignment="Center"
-            VerticalAlignment="Bottom">
+            VerticalAlignment="Bottom"
+            MouseEnter="SessionControlsContainer_MouseEnter"
+            MouseLeave="SessionControlsContainer_MouseLeave"
+            Opacity="0">
             <Button
                 x:Name="prevButton"
                 Width="32"
@@ -78,7 +82,6 @@
                 x:Name="pauseResumeButton"
                 Width="32"
                 Height="32"
-                Margin="8 0"
                 Style="{StaticResource IconButton.Normal}"
                 Click="PauseResumeButton_Click">
                 <Path Style="{StaticResource Icon.Play}"/>
