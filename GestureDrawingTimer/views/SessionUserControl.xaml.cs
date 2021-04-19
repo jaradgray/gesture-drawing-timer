@@ -62,6 +62,16 @@ namespace GestureDrawingTimer.views
             mViewModel.Back_Action();
         }
 
+        private void SessionControlsContainer_MouseEnter(object sender, MouseEventArgs e)
+        {
+            sessionControlsContainer.Opacity = 1;
+        }
+
+        private void SessionControlsContainer_MouseLeave(object sender, MouseEventArgs e)
+        {
+            sessionControlsContainer.Opacity = 0;
+        }
+
 
         // Private methods
         private void CurrentImagePath_Change(string path)
@@ -79,14 +89,18 @@ namespace GestureDrawingTimer.views
 
         private void SessionState_Change(Session.SessionState state)
         {
+            // Set pauseResumeButton's icon based on state.
+            //  We just set the button's Content's style (pauseResumeButton.Content is a Path object)
+            Path p;
             switch (state)
             {
-                // TODO set Content to image instead of text
                 case Session.SessionState.Started:
-                    pauseResumeButton.Content = "Pause";
+                    p = (Path)pauseResumeButton.Content;
+                    p.Style = (Style)FindResource("Icon.Pause");
                     break;
                 case Session.SessionState.Paused:
-                    pauseResumeButton.Content = "Resume";
+                    p = (Path)pauseResumeButton.Content;
+                    p.Style = (Style)FindResource("Icon.Play");
                     break;
             }
         }

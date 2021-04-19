@@ -6,36 +6,97 @@
              xmlns:local="clr-namespace:GestureDrawingTimer.views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/res/IconButtonStyleNormal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/res/images/IconsDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+        
         <Image
-            x:Name="imageContainer"/>
+            x:Name="imageContainer"
+            Grid.ColumnSpan="3"
+            Grid.RowSpan="3"/>
         <Button
             x:Name="backButton"
-            Content="Back"
+            Grid.Column="1"
+            Grid.Row="1"
+            Width="32"
+            Height="32"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="BackButton_Click"/>
+            Style="{StaticResource IconButton.Normal}"
+            Click="BackButton_Click">
+            <Path
+                Stretch="Uniform"
+                Fill="White"
+                Data="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </Button>
         <TextBlock
             x:Name="remainingTimeTextBlock"
+            Grid.Column="1"
+            Grid.Row="1"
             Text="remainingTimeTextBlock"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top"
+            Foreground="White"
+            Background="#7F000000"
+            FontSize="16"
+            Padding="4"/>
         <StackPanel
+            x:Name="sessionControlsContainer"
+            Grid.Column="1"
+            Grid.Row="1"
             Orientation="Horizontal"
             HorizontalAlignment="Center"
-            VerticalAlignment="Bottom">
+            VerticalAlignment="Bottom"
+            MouseEnter="SessionControlsContainer_MouseEnter"
+            MouseLeave="SessionControlsContainer_MouseLeave"
+            Opacity="0">
             <Button
                 x:Name="prevButton"
-                Content="Prev"
-                Click="PrevButton_Click"/>
+                Width="32"
+                Height="32"
+                Style="{StaticResource IconButton.Normal}"
+                Click="PrevButton_Click">
+                <Path
+                    Stretch="Uniform"
+                    Fill="White"
+                    Data="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </Button>
             <Button
                 x:Name="pauseResumeButton"
-                Content="pauseResumeButton"
-                Click="PauseResumeButton_Click"/>
+                Width="32"
+                Height="32"
+                Style="{StaticResource IconButton.Normal}"
+                Click="PauseResumeButton_Click">
+                <Path Style="{StaticResource Icon.Play}"/>
+            </Button>
             <Button
                 x:Name="NextButton"
-                Content="Next"
-                Click="NextButton_Click"/>
+                Width="32"
+                Height="32"
+                Style="{StaticResource IconButton.Normal}"
+                Click="NextButton_Click">
+                <Path
+                    Stretch="Uniform"
+                    Fill="White"
+                    Data="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>
