@@ -26,7 +26,7 @@ To configure the app to show images:
 - Click the "Select folder" button to choose a folder that contains the images you want to draw
   - Note: due to WPF's lack of a good folder selection dialog, a file selection dialog is used instead, so users should select any file from the desired folder instead of the folder itself
 - Click a time interval button to select the duration each image will be shown
-- When you're ready to start drawing, click the "Practice!" button
+- When you're ready to start drawing, click the "Start drawing!" button
 
 ### Using the app during a drawing session
 
