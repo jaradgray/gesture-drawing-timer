@@ -84,7 +84,6 @@ namespace GestureDrawingTimer.views
         {
             int min = seconds / 60;
             int sec = seconds % 60;
-            // TODO beep on final 3 seconds
             remainingTimeTextBlock.Text = string.Format("{0:D2}:{1:D2}", min, sec);
         }
 
