@@ -72,6 +72,7 @@ namespace GestureDrawingTimer.viewmodels
         private Session mSession;
         private List<string> mShuffledImagePaths;
         private SecondsTimer mTimer;
+        private SoundManager mSoundManager;
 
         // Constructor
         public SessionViewModel(Session session)
@@ -79,6 +80,7 @@ namespace GestureDrawingTimer.viewmodels
             // Set instance variables
             mSession = session;
             mTimer = new SecondsTimer(mSession.Interval);
+            mSoundManager = new SoundManager();
             // shuffle Session's list of image paths
             Random randy = new Random();
             mShuffledImagePaths = mSession.ImagePaths.OrderBy(path => randy.Next()).ToList();
@@ -206,6 +208,15 @@ namespace GestureDrawingTimer.viewmodels
         private void IntervalTimerRemainingSeconds_Change(int seconds)
         {
             this.RemainingSeconds = seconds;
+            // Play beeps on final seconds
+            // TODO add ability to enable/disable beeps
+            if (seconds == 0)
+            {
+                mSoundManager.Play(SoundManager.Sound.Beep1);
+            } else if (seconds < 4)
+            {
+                mSoundManager.Play(SoundManager.Sound.Beep2);
+            }
         }
 
         private void SessionState_Change(Session.SessionState state)
