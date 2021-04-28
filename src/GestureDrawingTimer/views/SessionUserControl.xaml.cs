@@ -84,23 +84,26 @@ namespace GestureDrawingTimer.views
         {
             int min = seconds / 60;
             int sec = seconds % 60;
+            // TODO beep on final 3 seconds
             remainingTimeTextBlock.Text = string.Format("{0:D2}:{1:D2}", min, sec);
         }
 
         private void SessionState_Change(Session.SessionState state)
         {
-            // Set pauseResumeButton's icon based on state.
-            //  We just set the button's Content's style (pauseResumeButton.Content is a Path object)
+            // Set pauseResumeButton's icon by setting its Style property,
+            //  and set remainingTimeTextBlock's Background
             Path p;
             switch (state)
             {
                 case Session.SessionState.Started:
                     p = (Path)pauseResumeButton.Content;
                     p.Style = (Style)FindResource("Icon.Pause");
+                    remainingTimeTextBlock.Background = new SolidColorBrush(Color.FromArgb(0x7f, 0, 0, 0));
                     break;
                 case Session.SessionState.Paused:
                     p = (Path)pauseResumeButton.Content;
                     p.Style = (Style)FindResource("Icon.Play");
+                    remainingTimeTextBlock.Background = new SolidColorBrush(Color.FromArgb(0x7f, 255, 0, 0));
                     break;
             }
         }
