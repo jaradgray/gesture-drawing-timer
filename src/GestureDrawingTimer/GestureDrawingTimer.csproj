@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="BaseINPC.cs" />
     <Compile Include="components\SecondsTimer.cs" />
+    <Compile Include="components\SoundManager.cs" />
     <Compile Include="models\Session.cs" />
     <Compile Include="viewmodels\MainWindowViewModel.cs" />
     <Compile Include="viewmodels\SessionViewModel.cs" />
@@ -139,6 +140,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\images\app_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="res\audio\beep-22.wav" />
+    <Content Include="res\audio\beep-24.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
