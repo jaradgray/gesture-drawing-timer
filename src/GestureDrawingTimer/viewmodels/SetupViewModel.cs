@@ -41,6 +41,9 @@ namespace GestureDrawingTimer.viewmodels
                 if (value == _doSearchSubfolders) return;
                 _doSearchSubfolders = value;
                 OnPropertyChanged();
+                // Persist DoSearchSubfolders value
+                Properties.Settings.Default.DoSearchSubfolders = _doSearchSubfolders;
+                Properties.Settings.Default.Save(); // persist value across application sessions
                 // Update image-related members
                 UpdateImagePaths();
             }
@@ -93,8 +96,8 @@ namespace GestureDrawingTimer.viewmodels
             mSession = session;
             // Initialize properties from persisted data
             SelectedFolderPath = Properties.Settings.Default.SelectedFolderPath;
-            Interval = Properties.Settings.Default.ImageInterval;
             DoSearchSubfolders = Properties.Settings.Default.DoSearchSubfolders;
+            Interval = Properties.Settings.Default.ImageInterval;
         }        
 
 
