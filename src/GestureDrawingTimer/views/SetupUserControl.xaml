@@ -46,7 +46,18 @@
                     Content="Select a folder"
                     Click="SelectFolderButton_Click"
                     Style="{StaticResource Button.Normal}"
-                Margin="0 0 0 8"/>
+                Margin="0 0 0 4"/>
+            <CheckBox
+                x:Name="searchSubfoldersCheckBox"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="0 0 0 8"
+                Foreground="#DDFFFFFF"
+                FontSize="16"
+                Checked="SearchSubfoldersCheckBox_Checked"
+                Unchecked="SearchSubfoldersCheckBox_Unchecked">
+                Search Subfolders
+            </CheckBox>
             <TextBlock
                 x:Name="folderTextBlock"
                 Text="folderTextBlock"

@@ -100,6 +100,16 @@ namespace GestureDrawingTimer.views
             mViewModel.StartButton_Click();
         }
 
+        private void SearchSubfoldersCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchSubfoldersCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         // Private methods
 
