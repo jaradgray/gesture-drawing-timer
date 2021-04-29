@@ -6,9 +6,7 @@
     </ResourceDictionary.MergedDictionaries>
     
     <!--
-        TODO icon buttons currently just use the normal button style.
-        The only reason we need this style is to dim the foreground fill in disabled state
-        We don't even do that yet because we don't set any icon buttons to disabled...
+        Based on ButtonStyleNormal.xaml, but with an extra Border for mouse-interaction overlay
     -->
 
     <Style
@@ -18,9 +16,9 @@
         <!-- TODO overwrite default values I want changed -->
         <Setter Property="Padding" Value="8"/>
         <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Background" Value="{StaticResource Button.Background}" />
-        <Setter Property="BorderBrush" Value="{StaticResource Button.Border}" />
-        <Setter Property="Foreground" Value="{StaticResource Button.Foreground}" />
+        <Setter Property="Background" Value="{StaticResource IconButton.Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource IconButton.Border}" />
+        <Setter Property="Foreground" Value="{StaticResource IconButton.Foreground}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -29,31 +27,36 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         SnapsToDevicePixels="true">
-                        <ContentPresenter x:Name="contentPresenter"
-                            RecognizesAccessKey="True"
-                            Margin="{TemplateBinding Padding}"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Focusable="False">
-                        </ContentPresenter>
+                        <Border
+                            x:Name="overlay"
+                            Background="Transparent"
+                            SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter"
+                                RecognizesAccessKey="True"
+                                Margin="{TemplateBinding Padding}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False">
+                            </ContentPresenter>
+                        </Border>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsDefaulted" Value="true">
                             <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="{StaticResource Button.MouseOver.Background}" TargetName="border" />
-                            <Setter Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}" TargetName="border" />
+                            <Setter Property="Background" Value="{StaticResource IconButton.MouseOver.Background}" TargetName="overlay" />
+                            <Setter Property="BorderBrush" Value="{StaticResource IconButton.MouseOver.Border}" TargetName="overlay" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Background" Value="{StaticResource Button.Pressed.Background}" TargetName="border" />
-                            <Setter Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" TargetName="border" />
+                            <Setter Property="Background" Value="{StaticResource IconButton.Pressed.Background}" TargetName="overlay" />
+                            <Setter Property="BorderBrush" Value="{StaticResource IconButton.Pressed.Border}" TargetName="overlay" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" Value="{StaticResource Button.Disabled.Background}" TargetName="border" />
-                            <Setter Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" TargetName="border" />
-                            <Setter Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" TargetName="contentPresenter" />
+                            <Setter Property="Background" Value="{StaticResource IconButton.Disabled.Background}" TargetName="overlay" />
+                            <Setter Property="BorderBrush" Value="{StaticResource IconButton.Disabled.Border}" TargetName="overlay" />
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource IconButton.Disabled.Foreground}" TargetName="contentPresenter" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
