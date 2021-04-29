@@ -32,6 +32,19 @@ namespace GestureDrawingTimer.viewmodels
                 UpdateImagePaths();
             }
         }
+        private bool _doSearchSubfolders;
+        public bool DoSearchSubfolders
+        {
+            get { return _doSearchSubfolders; }
+            set
+            {
+                if (value == _doSearchSubfolders) return;
+                _doSearchSubfolders = value;
+                OnPropertyChanged();
+                // Update image-related members
+                UpdateImagePaths();
+            }
+        }
         private int _numImages;
         public int NumImages
         {
@@ -81,6 +94,7 @@ namespace GestureDrawingTimer.viewmodels
             // Initialize properties from persisted data
             SelectedFolderPath = Properties.Settings.Default.SelectedFolderPath;
             Interval = Properties.Settings.Default.ImageInterval;
+            DoSearchSubfolders = Properties.Settings.Default.DoSearchSubfolders;
         }        
 
 
@@ -123,7 +137,7 @@ namespace GestureDrawingTimer.viewmodels
         {
             // Get paths of all supported image files in the currently selected folder and all of its subfolders
             string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
-            List<string> paths = GetFilePathsInDirectory(SelectedFolderPath, true, validExtensions);
+            List<string> paths = GetFilePathsInDirectory(SelectedFolderPath, DoSearchSubfolders, validExtensions);
 
             // Handle error
             if (paths == null)
@@ -137,7 +151,7 @@ namespace GestureDrawingTimer.viewmodels
             mSession.ImagePaths = paths;
             NumImages = mSession.ImagePaths.Count;
             string[] allSubfolders = System.IO.Directory.GetDirectories(SelectedFolderPath, "*", System.IO.SearchOption.AllDirectories);
-            NumSubfolders = allSubfolders.Length;
+            NumSubfolders = DoSearchSubfolders ? allSubfolders.Length : 0;
         }
 
         /// <summary>

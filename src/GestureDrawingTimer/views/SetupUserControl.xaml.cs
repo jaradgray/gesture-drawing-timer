@@ -102,12 +102,12 @@ namespace GestureDrawingTimer.views
 
         private void SearchSubfoldersCheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            mViewModel.DoSearchSubfolders = true;
         }
 
         private void SearchSubfoldersCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            mViewModel.DoSearchSubfolders = false;
         }
 
 
