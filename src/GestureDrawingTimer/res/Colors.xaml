@@ -27,5 +27,17 @@
     <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Background" Color="#3DFFFFFF"/>
     <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Foreground" Color="#61FFFFFF"/>
     <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Border" Color="Transparent"/>
+    
+    <!-- IconButton.Normal -->
+    <SolidColorBrush x:Key="IconButton.Background" Color="#7F000000"/>
+    <SolidColorBrush x:Key="IconButton.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="IconButton.Foreground" Color="#DDFFFFFF"/>
+    <SolidColorBrush x:Key="IconButton.MouseOver.Background" Color="#19FFFFFF"/> <!-- 10% white -->
+    <SolidColorBrush x:Key="IconButton.MouseOver.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="IconButton.Pressed.Background" Color="#35FFFFFF"/> <!-- 14% white -->
+    <SolidColorBrush x:Key="IconButton.Pressed.Border" Color="Transparent"/>
+    <SolidColorBrush x:Key="IconButton.Disabled.Background" Color="#19FFFFFF"/> <!-- 10% white -->
+    <SolidColorBrush x:Key="IconButton.Disabled.Foreground" Color="#61FFFFFF"/>
+    <SolidColorBrush x:Key="IconButton.Disabled.Border" Color="Transparent"/>
 
 </ResourceDictionary>
