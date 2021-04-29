@@ -46,5 +46,17 @@ namespace GestureDrawingTimer.Properties {
                 this["ImageInterval"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DoSearchSubfolders {
+            get {
+                return ((bool)(this["DoSearchSubfolders"]));
+            }
+            set {
+                this["DoSearchSubfolders"] = value;
+            }
+        }
     }
 }

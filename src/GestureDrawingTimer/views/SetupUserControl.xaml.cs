@@ -39,6 +39,9 @@ namespace GestureDrawingTimer.views
                     case "SelectedFolderPath":
                         SyncSelectedFolderPath();
                         break;
+                    case "DoSearchSubfolders":
+                        searchSubfoldersCheckBox.IsChecked = mViewModel.DoSearchSubfolders;
+                        break;
                     case "NumImages":
                         imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
                         break;
@@ -52,6 +55,7 @@ namespace GestureDrawingTimer.views
             };
 
             // Initialize views to ViewModel's state
+            searchSubfoldersCheckBox.IsChecked = mViewModel.DoSearchSubfolders;
             SyncSelectedFolderPath();
             imagesInFolderTextBlock.Text = $"Found {mViewModel.NumImages} {(mViewModel.NumImages == 1 ? "image" : "images")} in {mViewModel.NumSubfolders} {(mViewModel.NumSubfolders == 1 ? "subfolder" : "subfolders")}";
             SyncIntervalButtons();
@@ -98,6 +102,16 @@ namespace GestureDrawingTimer.views
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             mViewModel.StartButton_Click();
+        }
+
+        private void SearchSubfoldersCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            mViewModel.DoSearchSubfolders = true;
+        }
+
+        private void SearchSubfoldersCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            mViewModel.DoSearchSubfolders = false;
         }
 
 
