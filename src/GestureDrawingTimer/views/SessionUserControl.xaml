@@ -11,6 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/res/IconButtonStyleNormal.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/res/images/IconsDictionary.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/res/Colors.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -64,7 +65,7 @@
             Grid.ColumnSpan="3"
             Grid.RowSpan="2"
             VerticalAlignment="Bottom"
-            Background="Black"
+            Background="{StaticResource Gradient.TransparentToDark}"
             Opacity="0"
             MouseEnter="BottomControlsContainer_MouseEnter"
             MouseLeave="BottomControlsContainer_MouseLeave">

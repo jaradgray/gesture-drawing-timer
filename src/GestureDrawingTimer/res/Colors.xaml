@@ -29,7 +29,7 @@
     <SolidColorBrush x:Key="Button.HighEmphasis.Disabled.Border" Color="Transparent"/>
     
     <!-- IconButton.Normal -->
-    <SolidColorBrush x:Key="IconButton.Background" Color="#7F000000"/>
+    <SolidColorBrush x:Key="IconButton.Background" Color="#00000000"/>
     <SolidColorBrush x:Key="IconButton.Border" Color="Transparent"/>
     <SolidColorBrush x:Key="IconButton.Foreground" Color="#DDFFFFFF"/>
     <SolidColorBrush x:Key="IconButton.MouseOver.Background" Color="#19FFFFFF"/> <!-- 10% white -->
@@ -39,5 +39,14 @@
     <SolidColorBrush x:Key="IconButton.Disabled.Background" Color="#19FFFFFF"/> <!-- 10% white -->
     <SolidColorBrush x:Key="IconButton.Disabled.Foreground" Color="#61FFFFFF"/>
     <SolidColorBrush x:Key="IconButton.Disabled.Border" Color="Transparent"/>
+    
+    <!-- Gradient - transparent to  80% black -->
+    <LinearGradientBrush
+        x:Key="Gradient.TransparentToDark"
+        StartPoint="0,0"
+        EndPoint="0,1">
+        <GradientStop Color="#00000000" Offset="0.0"/>
+        <GradientStop Color="#CC000000" Offset="1.0"/>
+    </LinearGradientBrush>
 
 </ResourceDictionary>
