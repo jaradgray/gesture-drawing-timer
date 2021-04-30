@@ -62,14 +62,19 @@ namespace GestureDrawingTimer.views
             mViewModel.Back_Action();
         }
 
-        private void SessionControlsContainer_MouseEnter(object sender, MouseEventArgs e)
+        private void BottomControlsContainer_MouseEnter(object sender, MouseEventArgs e)
         {
-            sessionControlsContainer.Opacity = 1;
+            bottomControlsContainer.Opacity = 1;
         }
 
-        private void SessionControlsContainer_MouseLeave(object sender, MouseEventArgs e)
+        private void BottomControlsContainer_MouseLeave(object sender, MouseEventArgs e)
         {
-            sessionControlsContainer.Opacity = 0;
+            bottomControlsContainer.Opacity = 0;
+        }
+
+        private void OpenImageFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            mViewModel.OpenImageFolder();
         }
 
 

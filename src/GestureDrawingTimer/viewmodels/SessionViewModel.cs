@@ -168,6 +168,12 @@ namespace GestureDrawingTimer.viewmodels
             }
         }
 
+        public void OpenImageFolder()
+        {
+            // Open Windows Explorer to the current image's folder, with the current image file selected
+            System.Diagnostics.Process.Start("explorer.exe", $"/select,\"{CurrentImagePath}\""); // see this answer: https://stackoverflow.com/a/13680458
+        }
+
         // Private methods
         private void ShowNextImage()
         {
