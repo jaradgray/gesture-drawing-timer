@@ -118,7 +118,8 @@
                     Width="48"
                     Height="48"
                     Style="{StaticResource IconButton.Normal}"
-                    ToolTip="Open image's folder">
+                    ToolTip="Open image's folder"
+                    Click="OpenImageFolderButton_Click">
                     <Path
                         Stretch="Uniform"
                         Fill="White"

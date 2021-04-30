@@ -72,6 +72,11 @@ namespace GestureDrawingTimer.views
             bottomControlsContainer.Opacity = 0;
         }
 
+        private void OpenImageFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            mViewModel.OpenImageFolder();
+        }
+
 
         // Private methods
         private void CurrentImagePath_Change(string path)
